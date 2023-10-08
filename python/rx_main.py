@@ -1,6 +1,7 @@
 # %% Packages
 import logging
 import numpy as np
+import json
 
 from scipy.io import wavfile
 from deps.Decoder import Decoder
@@ -16,49 +17,44 @@ logging.basicConfig(filename="./log/rx_log.log",
                     datefmt='%d-%b-%y %H:%M:%S')
 
 # %% Get audio data
-sampling_freq, iq_data = wavfile.read('./data/Rx/test_rx_2023-10-03_004340409.wav')
-s_rx = iq_data
-# s_rx = iq_data[:, 0] + 1j * iq_data[:, 1]
+sampling_freq, s_rx = wavfile.read('./data/Rx/test_rx_2023-10-03_004340409.wav')
 
 # %% Parameters
-pulse_width = 0.8  # pulse width, 1 x 1, [s]
-pulse_interval = 1  # pulse interval repetition, 1 x 1, [s]
-t_recording = 3e1  # recording time, 1 x 1, [s]
-carrier_freq = 10_000  # carrier frequency, 1 x 1, [Hz]
-freq_shift = 400  # frequency shift for bi-tone mode, 1 x 1, [Hz]
-threshold_wake_up = 4
-threshold_release = 4
-n_sample_buffer = 512
-n_step = 50
-threshold_time = (2 * pulse_interval + pulse_width) * sampling_freq + 2 * n_sample_buffer
+parameters = json.load(open("./config/config.json"))
+
+# waveform parameters
+pulse_width = parameters["waveform"]["pulse_width"]  # pulse width, 1 x 1, [s]
+pulse_interval = parameters["waveform"]["pulse_repetition_interval"]  # pulse interval repetition, 1 x 1, [s]
+carrier_freq = parameters["waveform"]["carrier_frequency"]   # carrier frequency, 1 x 1, [Hz]
+freq_shift = parameters["waveform"]["frequency_shift"]   # frequency shift for bi-tone mode, 1 x 1, [Hz]
+
+# processing parameters
+threshold_wake_up = parameters["processing"]["threshold_wake_up"]  # zscore threshold for wake up tones (FFT), 1 x 1, [ ]
+threshold_release = parameters["processing"]["threshold_release"]  # zscore threshold for release tones (FFT), 1 x 1, [ ]
+n_step = parameters["processing"]["n_sample_step"]  # number of time sample between each FFT, 1 x 1, [ ]
+wake_up_tone = np.array(parameters["processing"]["wake_up_tone"])  # wake up tones, 1 x n_symb_preamb, [Hz]
+n_sample_buffer = parameters["processing"]["n_sample_buffer"]  # number of bins in FFT, 1 x 1, [ ]
+
+# decoder informations
+rx_id = parameters["rx_id"]  # decoder index, 1 x 1, [ ] 
+release_sequence = np.array(parameters["release_sequence"])  # binary release sequence, 1 x n_pulse, [ ]
 
 # %% Deducted parameters 
-sampling_prd = 1 / sampling_freq  # sampling period, 1 x 1, [s]
-sub_sampling_factor = int(pulse_interval / sampling_prd)
-# sub sampling period (nyquist period
-# to symbol period), 1 x 1, [ ]
+threshold_time = (2 * pulse_interval + pulse_width) * sampling_freq + 2 * n_sample_buffer  # maximum time sample between the first wake up tone and the last release tone, 1 x 1, [ ] 
+n_symb_preamb = len(wake_up_tone)  # number of wake up tones, 1 x 1, [ ]
+n_pulse = len(release_sequence)   # number of release tones, 1 x 1, [ ]
+release_tones = 4 * sampling_freq / n_sample_buffer * np.where(release_sequence == 1, 1, -1) + carrier_freq  # release tones, 1 x n_pulse, [Hz]
+true_message = ''.join(str(tone) for tone in release_sequence)   # binary release sequence, string, [ ]
 
-
-# %% Generate wake up tones and release tones
-n_sample_buffer = 128
-# wake_up_tone = np.array([-2, 0, 2]) * sampling_freq / n_sample_buffer + carrier_freq
-wake_up_tone = np.array([9_250, 10_000, 10_750])
-n_symb_preamb = len(wake_up_tone)
-
-true_message = "1111100110101"
-release_tones = 4 * sampling_freq / n_sample_buffer * np.array(
-    [1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1]) + carrier_freq
-n_pulse = len(release_tones)  # number of pulse, 1 x 1, [ ]
+# %% Get wake up and release tones index in the FFT
 release_tones[release_tones < 0] = sampling_freq + release_tones[release_tones < 0]
 index_release_tones = (np.round(np.unique(release_tones) * n_sample_buffer
                                 / sampling_freq)).astype(int)
-n_sample_buffer = 128
 wake_up_tone[wake_up_tone < 0] = sampling_freq + wake_up_tone[wake_up_tone < 0]
 index_wake_up_tones = (np.round(wake_up_tone * n_sample_buffer
                                 / sampling_freq)).astype(int)
 
 # %% Real time processing
-n_sample = np.round((n_symb_preamb + n_pulse) * pulse_interval * sampling_freq)
 decoded_sequence = np.zeros(len(s_rx) // n_step)
 processing_buffer = np.zeros(n_sample_buffer, dtype="complex128")
 flag_wake_up = [np.zeros(n_symb_preamb, dtype=bool),
