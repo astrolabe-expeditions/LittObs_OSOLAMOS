@@ -16,13 +16,11 @@ dictionary = {
                    "sample_rate": 48_000
                    },
     "rx_id": "1",
-    "release_sequence": [1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1]
-
 }
 
 # %% Serializing json
 payload = json.dumps(dictionary, indent=4)
 
 # %% Writing to sample.json
-with open("config.json", "w") as outfile:
+with open("../config.json", "w") as outfile:
     outfile.write(payload)

@@ -28,5 +28,5 @@ dictionary = {
 payload = json.dumps(dictionary, indent=4)
 
 # %% Writing to sample.json
-with open("release_sequences.json", "w") as outfile:
+with open("../release_sequences.json", "w") as outfile:
     outfile.write(payload)

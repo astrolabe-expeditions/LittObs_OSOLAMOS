@@ -3,8 +3,7 @@ import logging
 import numpy as np
 import json
 import pyaudio
-
-from scipy.io import wavfile
+import sys
 
 from deps.Decoder import Decoder
 from deps.tones_detection import tones_detection
@@ -17,9 +16,6 @@ logging.basicConfig(filename="./logs/rx_log.log",
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
                     datefmt='%d-%b-%y %H:%M:%S')
-
-# %% Get audio data
-sampling_freq, s_rx = wavfile.read('./data/Rx/test_rx_2023-10-03_004340409.wav')
 
 # %% Parameters
 parameters = json.load(open("./config/config.json"))
@@ -46,20 +42,20 @@ release_sequence = get_release_sequence(rx_id)
 
 # %% Deducted parameters
 threshold_time = ((2 * pulse_interval + pulse_width)  # maximum time sample between the
-                  * sampling_freq + 2 * n_sample_buffer)  # first wake-up tone and the last release tone, 1 x 1, [ ]
+                  * sample_rate + 2 * n_sample_buffer)  # first wake-up tone and the last release tone, 1 x 1, [ ]
 
 n_wake_up_tones = len(wake_up_tone)  # number of wake-up tones, 1 x 1, [ ]
 n_release_tones = len(release_sequence)  # number of release tones, 1 x 1, [ ]
-release_tones = (4 * sampling_freq / n_sample_buffer *
+release_tones = (4 * sample_rate / n_sample_buffer *
                  np.where(release_sequence == 1, 1, -1) + carrier_freq)  # release tones, 1 x n_release_tones, [Hz]
 true_message = ''.join(str(tone) for tone in release_sequence)  # binary release sequence, string, [ ]
 
 # %% Get wake up and release tones index in the FFT
-wake_up_tone[wake_up_tone < 0] = sampling_freq + wake_up_tone[wake_up_tone < 0]
-index_wake_up_tones = (np.round(wake_up_tone * n_sample_buffer / sampling_freq)
+wake_up_tone[wake_up_tone < 0] = sample_rate + wake_up_tone[wake_up_tone < 0]
+index_wake_up_tones = (np.round(wake_up_tone * n_sample_buffer / sample_rate)
                        ).astype(int)  # index of wake-up tones in FFT, 1 x n_wake_up_tones, [ ]
-release_tones[release_tones < 0] = sampling_freq + release_tones[release_tones < 0]
-index_release_tones = (np.round(np.unique(release_tones) * n_sample_buffer / sampling_freq)
+release_tones[release_tones < 0] = sample_rate + release_tones[release_tones < 0]
+index_release_tones = (np.round(np.unique(release_tones) * n_sample_buffer / sample_rate)
                        ).astype(int)  # index of release tones in FFT, 1 x n_release_tones, [ ]
 
 # %% Main routine
@@ -83,7 +79,7 @@ if __name__ == "__main__":
                       pulse_interval,
                       n_sample_buffer,
                       n_step,
-                      sampling_freq)
+                      sample_rate)
 
     # %% Buffer initialization
     processing_buffer = np.zeros(n_sample_buffer, dtype=np.int16)
@@ -103,9 +99,10 @@ if __name__ == "__main__":
 
         # %%% Check wake up tones
         if not flag_wake_up[0].all():
-            if (i_chunk * n_step) % (2 * sampling_freq) == 0:
+            if (i_chunk * n_step) % (2 * sample_rate) == 0:
                 i_chunk = 0
-                print("Looking for wake-up tones...")
+                sys.stdout.write("Looking for wake-up tones...\n")
+                sys.stdout.flush()
 
             current_flag_wake_up = tones_detection(processing_buffer,
                                                    index_wake_up_tones,
@@ -114,7 +111,8 @@ if __name__ == "__main__":
                                                       current_flag_wake_up,
                                                       threshold_time)
             if event:
-                print(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
+                sys.stdout.write(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]\n')
+                sys.stdout.flush()
                 logging.info(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
 
             i_chunk += 1
@@ -128,13 +126,15 @@ if __name__ == "__main__":
             if len(bit) != 0:
                 decoded_message += str(int(bit[0]))
 
-                print(f'Decoded message - {decoded_message}')
+                sys.stdout.write(f'Decoded message - {decoded_message}\n')
+                sys.stdout.flush()
                 logging.info(f'Decoded message - {decoded_message}')
 
                 if decoded_message == true_message:
                     flag_release = True
 
-                    print('!! Release !!')
+                    sys.stdout.write('!! Release !!\n')
+                    sys.stdout.flush()
                     logging.warning('!! Release !!')
 
                     break
