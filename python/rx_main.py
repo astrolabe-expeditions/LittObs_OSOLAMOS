@@ -10,7 +10,7 @@ from deps.update_flag_wake_up import update_flag_wake_up
 from time import time
 
 # %% Init logger
-logging.basicConfig(filename="./log/rx_log.log",
+logging.basicConfig(filename="./logs/rx_log.log",
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
