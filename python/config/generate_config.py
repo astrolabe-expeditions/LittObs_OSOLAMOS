@@ -12,7 +12,8 @@ dictionary = {
                    "threshold_release": 4,
                    "n_sample_buffer": 128,
                    "n_sample_step": 50,
-                   "wake_up_tone": [9_250, 10_000, 10_750]
+                   "wake_up_tone": [9_250, 10_000, 10_750],
+                   "sample_rate": 48_000
                    },
     "rx_id": "1",
     "release_sequence": [1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1]

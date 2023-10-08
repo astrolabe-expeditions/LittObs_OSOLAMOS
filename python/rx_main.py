@@ -2,13 +2,14 @@
 import logging
 import numpy as np
 import json
+import pyaudio
 
 from scipy.io import wavfile
+
 from deps.Decoder import Decoder
 from deps.tones_detection import tones_detection
 from deps.update_flag_wake_up import update_flag_wake_up
 from deps.get_release_sequence import get_release_sequence
-from time import time
 
 # %% Init logger
 logging.basicConfig(filename="./logs/rx_log.log",
@@ -35,9 +36,10 @@ threshold_release = parameters["processing"]["threshold_release"]  # zscore thre
 n_step = parameters["processing"]["n_sample_step"]  # number of time samples between each FFT, 1 x 1, [ ]
 wake_up_tone = np.array(parameters["processing"]["wake_up_tone"])  # wake up tones, 1 x n_wake_up_tones, [Hz]
 n_sample_buffer = parameters["processing"]["n_sample_buffer"]  # number of bins in FFT, 1 x 1, [ ]
+sample_rate = parameters["processing"]["sample_rate"]  # sample rate, 1 x 1, [Hz]
 
 # decoder information
-rx_id = parameters["rx_id"]  # decoder index, 1 x 1, [ ] 
+rx_id = parameters["rx_id"]  # Rx ID, 1 x 1, [ ]
 
 # %% Get binary release sequence from rx_id
 release_sequence = get_release_sequence(rx_id)
@@ -54,64 +56,93 @@ true_message = ''.join(str(tone) for tone in release_sequence)  # binary release
 
 # %% Get wake up and release tones index in the FFT
 wake_up_tone[wake_up_tone < 0] = sampling_freq + wake_up_tone[wake_up_tone < 0]
-index_wake_up_tones = (np.round(wake_up_tone * n_sample_buffer
-                                / sampling_freq)).astype(int)  # index of wake-up tones in FFT, 1 x n_wake_up_tones, [ ]
+index_wake_up_tones = (np.round(wake_up_tone * n_sample_buffer / sampling_freq)
+                       ).astype(int)  # index of wake-up tones in FFT, 1 x n_wake_up_tones, [ ]
 release_tones[release_tones < 0] = sampling_freq + release_tones[release_tones < 0]
-index_release_tones = (np.round(np.unique(release_tones) * n_sample_buffer
-                                / sampling_freq)).astype(int)  # index of release tones in FFT, 1 x n_release_tones, [ ]
+index_release_tones = (np.round(np.unique(release_tones) * n_sample_buffer / sampling_freq)
+                       ).astype(int)  # index of release tones in FFT, 1 x n_release_tones, [ ]
 
-# %% Real time processing
-processing_buffer = np.zeros(n_sample_buffer, dtype="complex128")
-flag_wake_up = [np.zeros(n_wake_up_tones, dtype=bool),
-                -np.ones(n_wake_up_tones)]
+# %% Main routine
+if __name__ == "__main__":
+    # %% PyAudio initialization
+    p = pyaudio.PyAudio()
+    stream = p.open(format=pyaudio.paInt16,
+                    channels=1,
+                    rate=sample_rate,
+                    input=True,
+                    frames_per_buffer=n_step)
+    player = p.open(format=pyaudio.paInt16,
+                    channels=1,
+                    rate=sample_rate,
+                    output=True,
+                    frames_per_buffer=n_step)
 
-decoded_message = ""
-flag_release = False
-flag_end = False
-decoder = Decoder(n_release_tones,
-                  pulse_width,
-                  pulse_interval,
-                  n_sample_buffer,
-                  n_step,
-                  sampling_freq)
+    # %% Decoder initialization
+    decoder = Decoder(n_release_tones,
+                      pulse_width,
+                      pulse_interval,
+                      n_sample_buffer,
+                      n_step,
+                      sampling_freq)
 
-t_begin = time()
-for i in range(0, len(s_rx) // n_step):
-    # %%% Update samples
-    processing_buffer[:-n_step] = processing_buffer[n_step:]
-    processing_buffer[-n_step:] = s_rx[i * n_step: (i + 1) * n_step]
-    current_flag_release = np.array([False, False])
+    # %% Buffer initialization
+    processing_buffer = np.zeros(n_sample_buffer, dtype=np.int16)
+    flag_wake_up = [np.zeros(n_wake_up_tones, dtype=bool),
+                    -np.ones(n_wake_up_tones)]
 
-    # %%% Check wake up tones
-    if not flag_wake_up[0].all():
-        current_flag_wake_up = tones_detection(processing_buffer,
-                                               index_wake_up_tones,
-                                               threshold_wake_up)
-        flag_wake_up, event = update_flag_wake_up(flag_wake_up,
-                                                  current_flag_wake_up,
-                                                  threshold_time)
-        if event:
-            logging.info(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
+    decoded_message = ""
+    flag_release = False
+    flag_end = False
+    i_chunk = 0
 
-    else:
-        detection_release_tones = tones_detection(processing_buffer,
-                                                  index_release_tones,
-                                                  threshold_release)
-        current_symbol = int(detection_release_tones[1]) - int(detection_release_tones[0])
-        flag_end, bit = decoder.step(current_symbol)
+    while flag_release is False:
+        # %%% Update samples
+        processing_buffer[:-n_step] = processing_buffer[n_step:]
+        processing_buffer[-n_step:] = np.copy(np.frombuffer(stream.read(n_step), dtype=np.int16))
+        current_flag_release = np.array([False, False])
 
-        if len(bit) != 0:
-            decoded_message += str(int(bit[0]))
-            logging.info(f'Decoded message - {decoded_message}')
+        # %%% Check wake up tones
+        if not flag_wake_up[0].all():
+            if (i_chunk * n_step) % (2 * sampling_freq) == 0:
+                i_chunk = 0
+                print("Looking for wake-up tones...")
 
-            if decoded_message == true_message:
-                flag_release = True
-                logging.warning('!! Release !!')
+            current_flag_wake_up = tones_detection(processing_buffer,
+                                                   index_wake_up_tones,
+                                                   threshold_wake_up)
+            flag_wake_up, event = update_flag_wake_up(flag_wake_up,
+                                                      current_flag_wake_up,
+                                                      threshold_time)
+            if event:
+                print(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
+                logging.info(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
 
-                break
+            i_chunk += 1
+        else:
+            detection_release_tones = tones_detection(processing_buffer,
+                                                      index_release_tones,
+                                                      threshold_release)
+            current_symbol = int(detection_release_tones[1]) - int(detection_release_tones[0])
+            flag_end, bit = decoder.step(current_symbol)
 
-        if flag_end:
-            flag_wake_up = [np.zeros(n_wake_up_tones, dtype=bool),
-                            -np.ones(n_wake_up_tones)]
+            if len(bit) != 0:
+                decoded_message += str(int(bit[0]))
 
-print(f"Elapsed time: {np.round(time() - t_begin, 5)} s")
+                print(f'Decoded message - {decoded_message}')
+                logging.info(f'Decoded message - {decoded_message}')
+
+                if decoded_message == true_message:
+                    flag_release = True
+
+                    print('!! Release !!')
+                    logging.warning('!! Release !!')
+
+                    break
+
+            if flag_end:
+                flag_wake_up = [np.zeros(n_wake_up_tones, dtype=bool),
+                                -np.ones(n_wake_up_tones)]
+
+    stream.stop_stream()
+    stream.close()
+    p.terminate()

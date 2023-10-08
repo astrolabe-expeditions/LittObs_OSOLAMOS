@@ -14,7 +14,8 @@
             9250,
             10000,
             10750
-        ]
+        ],
+        "sample_rate": 48000
     },
     "rx_id": "1",
     "release_sequence": [
