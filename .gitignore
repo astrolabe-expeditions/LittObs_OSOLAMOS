@@ -3,3 +3,6 @@
 
 # ignore all compiled python script
 *.pyc
+
+# ignore .idea folder 
+.idea
