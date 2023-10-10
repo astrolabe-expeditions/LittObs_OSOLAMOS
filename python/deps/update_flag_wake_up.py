@@ -17,8 +17,7 @@ def update_flag_wake_up(flag,
     flag_value[flag_time_threshold] = False
     index[flag_time_threshold] = -1
 
-    # One flag was changed
-    index = np.arange(len(flag[0]))
-    event = index[flag_value != flag[0]].tolist()
+    # One flag as changed
+    event = np.arange(len(flag[0]))[flag_value != flag[0]].tolist()
 
     return [flag_value, index], event

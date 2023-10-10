@@ -1,7 +1,6 @@
 class Decoder:
     def __init__(self, 
-                 n_symbols, 
-                 pulse_wdith, 
+                 n_symbols,
                  pulse_interval, 
                  n_fft,
                  n_step,

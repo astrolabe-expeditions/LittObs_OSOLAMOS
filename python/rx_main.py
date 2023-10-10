@@ -40,7 +40,7 @@ release_sequence = get_release_sequence(rx_id)
 
 # %% Deducted parameters
 threshold_time = ((2 * pulse_interval + pulse_width)  # maximum time sample between the
-                  * sample_rate + 2 * n_sample_buffer)  # first wake-up tone and the last release tone, 1 x 1, [ ]
+                  * sample_rate / n_step + 2 * n_sample_buffer)  # first wake-up tone and the last one, 1 x 1, [ ]
 
 n_wake_up_tones = len(wake_up_tone)  # number of wake-up tones, 1 x 1, [ ]
 n_release_tones = len(release_sequence)  # number of release tones, 1 x 1, [ ]
@@ -68,7 +68,6 @@ if __name__ == "__main__":
 
     # %% Decoder initialization
     decoder = Decoder(n_release_tones,
-                      pulse_width,
                       pulse_interval,
                       n_sample_buffer,
                       n_step,
@@ -76,11 +75,12 @@ if __name__ == "__main__":
 
     # %% Buffer initialization
     processing_buffer = np.zeros(n_sample_buffer, dtype=np.int16)
-    flag_wake_up = [np.zeros(n_wake_up_tones, dtype=bool),
-                    -np.ones(n_wake_up_tones)]
+    flag_wake_up_tones = [np.zeros(n_wake_up_tones, dtype=bool),
+                          -np.ones(n_wake_up_tones)]
 
     decoded_message = ""
     flag_release = False
+    flag_wake_up = False
     flag_end = False
     i_chunk = 0
 
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         current_flag_release = np.array([False, False])
 
         # %%% Check wake up tones
-        if not flag_wake_up[0].all():
+        if flag_wake_up is False:
             if (i_chunk * n_step) % (2 * sample_rate) == 0:
                 i_chunk = 0
                 sys.stdout.write("Looking for wake-up tones...\n")
@@ -100,16 +100,23 @@ if __name__ == "__main__":
             current_flag_wake_up = tones_detection(processing_buffer,
                                                    index_wake_up_tones,
                                                    threshold_wake_up)
-            flag_wake_up, index_event = update_flag_wake_up(flag_wake_up,
-                                                            current_flag_wake_up,
-                                                            threshold_time)
+
+            flag_wake_up_tones, index_event = update_flag_wake_up(flag_wake_up_tones,
+                                                                  current_flag_wake_up,
+                                                                  threshold_time)
+
             if index_event:
                 sys.stdout.write(
-                    f'Wake up tones found - [{index_event[0]}: {np.sum(flag_wake_up[0])}/{n_wake_up_tones}]\n')
+                    f'Wake up tones update - [n°{index_event[0] + 1}: {np.sum(flag_wake_up_tones[0])}/{n_wake_up_tones}]\n')
                 sys.stdout.flush()
-                logging.info(f'Wake up tones found - [({index_event[0]}): {np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
+                logging.info(
+                    f'Wake up tones update - [n°{index_event[0] + 1}: {np.sum(flag_wake_up_tones[0])}/{n_wake_up_tones}]')
 
             i_chunk += 1
+
+            if (flag_wake_up_tones[0].all() and np.all(
+                    np.sort(flag_wake_up_tones[0][::-1]) == flag_wake_up_tones[0][::-1])):
+                flag_wake_up = True
         else:
             detection_release_tones = tones_detection(processing_buffer,
                                                       index_release_tones,
@@ -134,8 +141,9 @@ if __name__ == "__main__":
                     break
 
             if flag_end:
-                flag_wake_up = [np.zeros(n_wake_up_tones, dtype=bool),
-                                -np.ones(n_wake_up_tones)]
+                flag_wake_up = False
+                flag_wake_up_tones = [np.zeros(n_wake_up_tones, dtype=bool),
+                                      -np.ones(n_wake_up_tones)]
 
     stream.stop_stream()
     stream.close()
