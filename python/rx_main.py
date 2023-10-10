@@ -5,10 +5,7 @@ import json
 import pyaudio
 import sys
 
-from deps.Decoder import Decoder
-from deps.tones_detection import tones_detection
-from deps.update_flag_wake_up import update_flag_wake_up
-from deps.get_release_sequence import get_release_sequence
+from deps import *
 
 # %% Init logger
 logging.basicConfig(filename="./logs/rx_log.log",
@@ -31,6 +28,7 @@ threshold_wake_up = parameters["processing"]["threshold_wake_up"]  # zscore thre
 threshold_release = parameters["processing"]["threshold_release"]  # zscore threshold for release tones, 1 x 1, [ ]
 n_step = parameters["processing"]["n_sample_step"]  # number of time samples between each FFT, 1 x 1, [ ]
 wake_up_tone = np.array(parameters["processing"]["wake_up_tone"])  # wake up tones, 1 x n_wake_up_tones, [Hz]
+release_tone = np.array(parameters["processing"]["release_tone"])  # release tones, 1 x 2, [Hz]
 n_sample_buffer = parameters["processing"]["n_sample_buffer"]  # number of bins in FFT, 1 x 1, [ ]
 sample_rate = parameters["processing"]["sample_rate"]  # sample rate, 1 x 1, [Hz]
 
@@ -46,8 +44,8 @@ threshold_time = ((2 * pulse_interval + pulse_width)  # maximum time sample betw
 
 n_wake_up_tones = len(wake_up_tone)  # number of wake-up tones, 1 x 1, [ ]
 n_release_tones = len(release_sequence)  # number of release tones, 1 x 1, [ ]
-release_tones = (4 * sample_rate / n_sample_buffer *
-                 np.where(release_sequence == 1, 1, -1) + carrier_freq)  # release tones, 1 x n_release_tones, [Hz]
+release_tones = np.where(release_sequence == 0,
+                         release_tone[0], release_tone[1])  # release tones, 1 x n_release_tones, [Hz]
 true_message = ''.join(str(tone) for tone in release_sequence)  # binary release sequence, string, [ ]
 
 # %% Get wake up and release tones index in the FFT
@@ -66,11 +64,6 @@ if __name__ == "__main__":
                     channels=1,
                     rate=sample_rate,
                     input=True,
-                    frames_per_buffer=n_step)
-    player = p.open(format=pyaudio.paInt16,
-                    channels=1,
-                    rate=sample_rate,
-                    output=True,
                     frames_per_buffer=n_step)
 
     # %% Decoder initialization

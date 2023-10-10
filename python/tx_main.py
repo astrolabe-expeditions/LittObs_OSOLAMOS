@@ -7,14 +7,14 @@ from scipy.signal.windows import tukey
 pulse_width = 0.8  # pulse width, 1 x 1, [s]
 pulse_interval = 1  # pulse interval repetition, 1 x 1, [s]
 power_tx = 1  # power of the transmitted signal, 1 x 1, [W]
-sampling_freq = 44_100  # sampling frequency, 1 x 1, [Hz]
+sampling_freq = 48_000  # sampling frequency, 1 x 1, [Hz]
 carrier_freq = 10_000  # carrier frequency, 1 x 1, [Hz]
 n_sample_buffer = 128
-file_name = "tx.wav"
+file_name = "./data/Tx/tx.wav"
 
 # %% Deducted parameters 
 sampling_prd = 1 / sampling_freq  # sampling period, 1 x 1, [s]
-amp_tx = np.sqrt(power_tx)  # amplitude of the transmitted
+amp_tx = 32768  # amplitude of the transmitted
 # signal, 1 x 1, [V]
 sub_sampling_factor = int(pulse_interval / sampling_prd)
 # sub sampling period (nyquist period
@@ -48,4 +48,5 @@ for i_pulse in range(n_pulse + n_symb_preamb):
     s_tx += amp_tx * np.exp(1j * 2 * np.pi * pulse_freq *
                             (t - i_pulse * pulse_interval)) * door_tx
 
-wavf.write(file_name, sampling_freq, s_tx.real)
+s_tx = np.minimum(s_tx, 32767)
+wavf.write(file_name, sampling_freq, s_tx.real.astype(np.int16))

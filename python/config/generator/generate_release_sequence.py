@@ -1,6 +1,7 @@
 # %% Packages
 import numpy as np
 import json
+import jsbeautifier
 
 from numpy.random import randint
 
@@ -17,15 +18,15 @@ sequences = sequences.tolist()
 
 # %% Generate associate index
 ids = [str(current_id) for current_id in np.arange(1, n_sequences + 1).tolist()]
+release_sequence = [{'release_sequences': current_sequence} for current_sequence in sequences]
 
 # %% Data to be written
-dictionary = {
-    "rx_id": ids,
-    "release_sequence": sequences,
-}
+nested_dictionary = dict(zip(ids, release_sequence))
 
 # %% Serializing json
-payload = json.dumps(dictionary, indent=4)
+options = jsbeautifier.default_options()
+options.indent_size = 4
+payload = jsbeautifier.beautify(json.dumps(nested_dictionary), options)
 
 # %% Writing to sample.json
 with open("../release_sequences.json", "w") as outfile:
