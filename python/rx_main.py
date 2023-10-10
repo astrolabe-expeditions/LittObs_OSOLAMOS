@@ -107,10 +107,10 @@ if __name__ == "__main__":
 
             if index_event:
                 sys.stdout.write(
-                    f'Wake up tones update - [n°{index_event[0] + 1}: {np.sum(flag_wake_up_tones[0])}/{n_wake_up_tones}]\n')
+                    f'Wake up tones update - [n{index_event[0] + 1}: {np.sum(flag_wake_up_tones[0])}/{n_wake_up_tones}]\n')
                 sys.stdout.flush()
                 logging.info(
-                    f'Wake up tones update - [n°{index_event[0] + 1}: {np.sum(flag_wake_up_tones[0])}/{n_wake_up_tones}]')
+                    f'Wake up tones update - [n{index_event[0] + 1}: {np.sum(flag_wake_up_tones[0])}/{n_wake_up_tones}]')
 
             i_chunk += 1
 
