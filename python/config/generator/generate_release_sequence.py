@@ -18,7 +18,7 @@ sequences = sequences.tolist()
 
 # %% Generate associate index
 ids = [str(current_id) for current_id in np.arange(1, n_sequences + 1).tolist()]
-release_sequence = [{'release_sequences': current_sequence} for current_sequence in sequences]
+release_sequence = [{'release_sequence': current_sequence} for current_sequence in sequences]
 
 # %% Data to be written
 nested_dictionary = dict(zip(ids, release_sequence))

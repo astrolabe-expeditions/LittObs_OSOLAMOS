@@ -10,15 +10,8 @@
         "threshold_release": 4,
         "n_sample_buffer": 128,
         "n_sample_step": 50,
-        "wake_up_tone": [
-            9250,
-            10000,
-            10750
-        ],
-        "release_tone": [
-            8500,
-            11500
-        ],
+        "wake_up_tone": [9250, 10000, 10750],
+        "release_tone": [8500, 11500],
         "sample_rate": 48000
     },
     "rx_id": "1"

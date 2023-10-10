@@ -1,5 +1,6 @@
 # %% Packages
 import json
+import jsbeautifier
 
 # %% Data to be written
 dictionary = {
@@ -20,7 +21,9 @@ dictionary = {
 }
 
 # %% Serializing json
-payload = json.dumps(dictionary, indent=4)
+options = jsbeautifier.default_options()
+options.indent_size = 4
+payload = jsbeautifier.beautify(json.dumps(dictionary), options)
 
 # %% Writing to sample.json
 with open("../config.json", "w") as outfile:

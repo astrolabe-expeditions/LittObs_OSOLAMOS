@@ -100,13 +100,14 @@ if __name__ == "__main__":
             current_flag_wake_up = tones_detection(processing_buffer,
                                                    index_wake_up_tones,
                                                    threshold_wake_up)
-            flag_wake_up, event = update_flag_wake_up(flag_wake_up,
-                                                      current_flag_wake_up,
-                                                      threshold_time)
-            if event:
-                sys.stdout.write(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]\n')
+            flag_wake_up, index_event = update_flag_wake_up(flag_wake_up,
+                                                            current_flag_wake_up,
+                                                            threshold_time)
+            if index_event:
+                sys.stdout.write(
+                    f'Wake up tones found - [{index_event[0]}: {np.sum(flag_wake_up[0])}/{n_wake_up_tones}]\n')
                 sys.stdout.flush()
-                logging.info(f'Wake up tones found - [{np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
+                logging.info(f'Wake up tones found - [({index_event[0]}): {np.sum(flag_wake_up[0])}/{n_wake_up_tones}]')
 
             i_chunk += 1
         else:
