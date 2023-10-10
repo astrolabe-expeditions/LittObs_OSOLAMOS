@@ -1,3 +1,3 @@
 # LittObs-LAMOS
-TODO: prettyprint 2D array in .json file  
-TODO: better wake-up tones detector
+- [x] prettyprint 2D array in .json file  
+- [x] better wake-up tones detector
