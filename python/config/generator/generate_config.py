@@ -12,7 +12,7 @@ dictionary = {
     "processing": {"threshold_wake_up": 4,
                    "threshold_release": 4,
                    "n_sample_buffer": 128,
-                   "n_sample_step": 50,
+                   "n_sample_step": 128,
                    "wake_up_tone": [9_250, 10_000, 10_750],
                    "release_tone": [8_500, 11_500],
                    "sample_rate": 48_000

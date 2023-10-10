@@ -113,7 +113,7 @@ if __name__ == "__main__":
                     f'Wake up tones update - [n{index_event[0] + 1}: {np.sum(flag_wake_up_tones[0])}/{n_wake_up_tones}]')
 
             i_chunk += 1
-
+            flag_wake_up_tones[0] = np.array([True, True, True])
             if (flag_wake_up_tones[0].all() and np.all(
                     np.sort(flag_wake_up_tones[0][::-1]) == flag_wake_up_tones[0][::-1])):
                 flag_wake_up = True
@@ -121,6 +121,7 @@ if __name__ == "__main__":
             detection_release_tones = tones_detection(processing_buffer,
                                                       index_release_tones,
                                                       threshold_release)
+
             current_symbol = int(detection_release_tones[1]) - int(detection_release_tones[0])
             flag_end, bit = decoder.step(current_symbol)
 
@@ -144,6 +145,8 @@ if __name__ == "__main__":
                 flag_wake_up = False
                 flag_wake_up_tones = [np.zeros(n_wake_up_tones, dtype=bool),
                                       -np.ones(n_wake_up_tones)]
+                decoded_message = ""
+                decoder.reset()
 
     stream.stop_stream()
     stream.close()
