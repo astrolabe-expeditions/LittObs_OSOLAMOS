@@ -4,5 +4,8 @@
 # ignore all compiled python script
 *.pyc
 
-# ignore .idea folder 
+# ignore .idea folder
 .idea
+
+# ignore .idea folder
+.pytest_cache
