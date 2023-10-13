@@ -1,8 +1,8 @@
-# %% Packages
+""" Receiver main """
 import numpy as np
 import pyaudio
 
-from deps.Decoder import Decoder
+from deps.decoder import Decoder
 
 # %% Decoder initialization
 decoder = Decoder(log=True)
@@ -20,19 +20,20 @@ stream = p.open(format=pyaudio.paInt16,
                 frames_per_buffer=n_step)
 
 # %% Main routine
+FLAG_RELEASE = False
 if __name__ == "__main__":
     # %%% While loop initialization
-    flag_release = False
+
     processing_buffer = np.zeros(n_sample_buffer, dtype=np.int16)
 
     # %%% While loop
-    while flag_release is False:
+    while FLAG_RELEASE is False:
         # %%%% Update samples
         processing_buffer[:-n_step] = processing_buffer[n_step:]
         processing_buffer[-n_step:] = np.copy(np.frombuffer(stream.read(n_step), dtype=np.int16))
 
         # %%%% Processing step
-        flag_release = decoder.step(processing_buffer)
+        FLAG_RELEASE = decoder.step(processing_buffer)
 
     stream.stop_stream()
     stream.close()

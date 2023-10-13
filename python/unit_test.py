@@ -1,15 +1,31 @@
+""" unit tests main """
 # %% Packages
+import unittest
 import sys
 import numpy as np
 from scipy.io import wavfile
 
-from deps.Decoder import Decoder
-import unittest
+from deps.decoder import Decoder
 
 
 class RxTest(unittest.TestCase):
+    """
+        RxTest object
+    """
     def test_full_sequence(self):
+
         # %% Decoder initialization
+        """
+        The test_full_sequence function tests the Decoder class by
+        running it on a recorded audio file. The test_full_sequence
+        function is run in the main() function of this script, and
+        if it passes, the user will see 'OK' printed to their terminal.
+        If not, they will see an error message.
+
+        :param self: Represent the instance of the class
+        :return: True if the flag_release is true
+
+        """
         decoder = Decoder()
 
         n_step = decoder.get_n_step()

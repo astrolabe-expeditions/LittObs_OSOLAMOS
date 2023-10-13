@@ -1,10 +1,31 @@
+""" Release decoder definition """
+
+
 class ReleaseDecoder:
+    """
+        Release Decoder class
+    """
+
     def __init__(self,
                  n_symbols,
                  pulse_interval,
                  n_fft,
                  n_step,
                  shannon_frequency):
+        """
+        The __init__ function is called when the class is instantiated.
+        It sets up the initial values of all variables and objects that are used in this class.
+
+
+        :param self: Represent the instance of the class
+        :param n_symbols: Determine the number of symbols in a frame
+        :param pulse_interval: Set the maximum value of the local_timer variable
+        :param n_fft: Determine the maximum value of local_timer
+        :param n_step: Determine the number of samples per symbol
+        :param shannon_frequency: Determine the number of samples per symbol
+        :return: A class object
+
+        """
         self.global_timer = 0
         self.local_timer = 0
         self.count_symbol = 0
@@ -15,6 +36,16 @@ class ReleaseDecoder:
         self.max_temp = int(pulse_interval * shannon_frequency) - n_fft
 
     def step(self, symbol):
+        """
+        The step function is the core of the algorithm. It takes in a symbol and returns two values:
+            - flag_end: a boolean indicating whether or not to stop decoding
+            - message: an array containing all messages decoded so far
+
+        :param self: Represent the instance of the class
+        :param symbol: Count the number of positive and negative symbols
+        :return: A flag_end and a message
+
+        """
         flag_end = False
         message = []
 
@@ -40,6 +71,15 @@ class ReleaseDecoder:
         return flag_end, message
 
     def reset(self):
+        """
+        The reset function is used to reset the global and local timers,
+        as well as the count symbol.
+
+
+        :param self: Represent the instance of the class
+        :return: The global timer, local timer and the count symbol
+
+        """
         self.global_timer = 0
         self.local_timer = 0
         self.count_symbol = 0

@@ -12,7 +12,7 @@ repos:
     hooks:
       - id: pylint
         name: pylint
-        entry: pylint
+        entry: pylint --disable=too-many-instance-attributes,too-many-arguments
         language: python
         types: [ python ]
   - repo: local
