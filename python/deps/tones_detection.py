@@ -12,7 +12,7 @@ def tones_detection(signal,
     for each frequency bin in that signal. If any of those bins are above
     the threshold, it returns True.
 
-    :param x: Pass the signal to be analyzed to
+    :param signal: Pass the signal to be analyzed to
     :param index_tones: Identify the frequency of each tone to
     :param threshold: Determine if the tone is present or not
     :return: A boolean array
