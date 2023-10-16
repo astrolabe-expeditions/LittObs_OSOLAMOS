@@ -10,9 +10,9 @@ power_tx = 1  # power of the transmitted signal, 1 x 1, [W]
 sampling_freq = 48_000  # sampling frequency, 1 x 1, [Hz]
 carrier_freq = 10_000  # carrier frequency, 1 x 1, [Hz]
 n_sample_buffer = 128
-file_name = "./data/Tx/tx.wav"
+file_name = "data/Tx/tx_release_sequence.wav"
 
-# %% Deducted parameters 
+# %% Deducted parameters
 sampling_prd = 1 / sampling_freq  # sampling period, 1 x 1, [s]
 amp_tx = 32768  # amplitude of the transmitted
 # signal, 1 x 1, [V]
@@ -20,13 +20,13 @@ sub_sampling_factor = int(pulse_interval / sampling_prd)
 # sub sampling period (nyquist period
 # to symbol period), 1 x 1, [ ]
 
-# %% Generate wake up tones and release tones
+# %% Generate wake-up tones and release tones
 wake_up_tone = np.array([-2, 0, 2]) * sampling_freq / n_sample_buffer + carrier_freq
 n_symb_preamb = len(wake_up_tone)
 wake_up_tone[wake_up_tone < 0] = sampling_freq + wake_up_tone[wake_up_tone < 0]
 release_tones = 4 * sampling_freq / n_sample_buffer * np.array(
     [1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1]) + carrier_freq
-n_pulse = len(release_tones)  # number of pulse, 1 x 1, [ ]
+n_pulse = len(release_tones)  # number of pulses, 1 x 1, [ ]
 
 # %% Generate Tx signal
 t_recording = (n_symb_preamb + n_pulse) * pulse_interval
@@ -45,8 +45,9 @@ for i_pulse in range(n_pulse + n_symb_preamb):
                        1.0, 0.0)
     door_tx[door_tx == 1.0] = tukey(int(door_tx.sum()))
 
-    s_tx += amp_tx * np.exp(1j * 2 * np.pi * pulse_freq *
-                            (t - i_pulse * pulse_interval)) * door_tx
+    if i_pulse > n_symb_preamb - 1:
+        s_tx += amp_tx * np.exp(1j * 2 * np.pi * pulse_freq *
+                                (t - i_pulse * pulse_interval)) * door_tx
 
 s_tx = np.minimum(s_tx, 32767)
 wavf.write(file_name, sampling_freq, s_tx.real.astype(np.int16))

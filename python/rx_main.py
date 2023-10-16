@@ -1,36 +1,34 @@
-""" Receiver main """
 import numpy as np
 import pyaudio
 
 from deps.decoder import Decoder
 
-# %% Decoder initialization
+# %% Initialization
 decoder = Decoder(log=True)
 
-sample_rate = decoder.get_sample_rate()
-n_step = decoder.get_n_step()
-n_sample_buffer = decoder.get_n_sample_buffer()
-
-# %% PyAudio initialization
-p = pyaudio.PyAudio()
-stream = p.open(format=pyaudio.paInt16,
-                channels=1,
-                rate=sample_rate,
-                input=True,
-                frames_per_buffer=n_step)
+SAMPLE_RATE = decoder.get_sample_rate()
+N_STEP = decoder.get_n_step()
+N_SAMPLE_BUFFER = decoder.get_n_sample_buffer()
+FLAG_RELEASE = False
 
 # %% Main routine
-FLAG_RELEASE = False
 if __name__ == "__main__":
-    # %%% While loop initialization
+    # %% PyAudio initialization
+    p = pyaudio.PyAudio()
+    stream = p.open(format=pyaudio.paInt16,
+                    channels=1,
+                    rate=SAMPLE_RATE,
+                    input=True,
+                    frames_per_buffer=N_STEP)
 
-    processing_buffer = np.zeros(n_sample_buffer, dtype=np.int16)
+    # %%% While loop initialization
+    processing_buffer = np.zeros(N_SAMPLE_BUFFER, dtype=np.int16)
 
     # %%% While loop
     while FLAG_RELEASE is False:
         # %%%% Update samples
-        processing_buffer[:-n_step] = processing_buffer[n_step:]
-        processing_buffer[-n_step:] = np.copy(np.frombuffer(stream.read(n_step), dtype=np.int16))
+        processing_buffer[:-N_STEP] = processing_buffer[N_STEP:]
+        processing_buffer[-N_STEP:] = np.copy(np.frombuffer(stream.read(N_STEP), dtype=np.int16))
 
         # %%%% Processing step
         FLAG_RELEASE = decoder.step(processing_buffer)

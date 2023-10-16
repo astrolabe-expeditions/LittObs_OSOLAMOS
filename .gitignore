@@ -9,3 +9,6 @@
 
 # ignore .idea folder
 .pytest_cache
+
+# ignore unit tests
+.pre-commit-config.yaml
