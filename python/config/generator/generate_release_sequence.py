@@ -28,5 +28,5 @@ options.indent_size = 4
 payload = jsbeautifier.beautify(json.dumps(nested_dictionary), options)
 
 # %% Writing to sample.json
-with open("../release_sequences.json", "w") as outfile:
+with open("../release_sequences.json", "w", encoding="utf-8") as outfile:
     outfile.write(payload)

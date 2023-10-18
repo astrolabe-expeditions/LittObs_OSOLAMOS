@@ -9,8 +9,8 @@ from scipy.signal.windows import tukey
 from python.deps.get_release_sequence import get_release_sequence
 
 # %% Script options
-generate_file_name = "data/Tx/tx_full_sequence.wav"
-rx_id = "1"
+GENERATE_FILE_NAME = "data/Tx/tx_full_sequence.wav"
+RX_ID = "1"
 
 # %% Open config file
 with open(sys.path[0] + "/config/config.json", encoding="utf-8") as file:
@@ -22,7 +22,7 @@ pulse_interval = parameters["waveform"]["pulse_repetition_interval"]  # pulse in
 sampling_freq = parameters["processing"]["sample_rate"]  # sampling frequency, 1 x 1, [Hz]
 carrier_freq = parameters["waveform"]["carrier_frequency"]  # carrier frequency, 1 x 1, [Hz]
 n_sample_buffer = parameters["processing"]["n_sample_buffer"]  # number of bins in FFT, 1 x 1, [ ]
-release_sequence = get_release_sequence(rx_id)  # binary release sequence, 1 x 1, [ ]
+release_sequence = get_release_sequence(RX_ID)  # binary release sequence, 1 x 1, [ ]
 
 # %% Generate wake-up tones and release tones
 wake_up_tones = np.array([-10, 0, 10]) * sampling_freq / n_sample_buffer + carrier_freq
@@ -58,14 +58,14 @@ for i_pulse in range(n_release_tones + n_wake_up_tones):
 s_tx = (s_tx.real + 1) / 2 * (32767 + 32768) - 32768
 
 # %% Save Tx signals in .wav file
-wavf.write(generate_file_name, sampling_freq, s_tx.astype(np.int16))
+wavf.write(GENERATE_FILE_NAME, sampling_freq, s_tx.astype(np.int16))
 
 # %% Update release_sequences.json file
 with open(sys.path[0] + "/config/release_sequences.json", mode="r", encoding="utf-8") as file:
     rx_id_parameters = json.load(file)
 
-    rx_id_parameters[rx_id]["release_tones"] = np.unique(release_tones).tolist()
-    rx_id_parameters[rx_id]["wake_up_tones"] = wake_up_tones.tolist()
+    rx_id_parameters[RX_ID]["release_tones"] = np.unique(release_tones).tolist()
+    rx_id_parameters[RX_ID]["wake_up_tones"] = wake_up_tones.tolist()
 
     options = jsbeautifier.default_options()
     options.indent_size = 4
