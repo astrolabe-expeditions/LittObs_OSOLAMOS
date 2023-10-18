@@ -4,6 +4,8 @@ import json
 import sys
 import numpy as np
 
+from .get_release_tones import get_release_tones
+from .get_wake_up_tones import get_wake_up_tones
 from .release_decoder import ReleaseDecoder
 from .flag_tones_to_symbol import flag_tones_to_symbol
 from .get_release_sequence import get_release_sequence
@@ -38,6 +40,7 @@ class Decoder:
         :return: True if the flag_release is true, which means that
 
         """
+
         if self.flag_wake_up is False:
             current_flag_wake_up = tones_detection(processing_buffer,
                                                    self.index_wake_up_tones,
@@ -55,10 +58,10 @@ class Decoder:
                                                       self.threshold_release)
 
             current_symbol = flag_tones_to_symbol(detection_release_tones)
+
             flag_end, bit = self.release_decoder.step(current_symbol)
 
             self.flag_release = self.update_decoded_message(bit)
-
             if self.flag_release:
                 return True
 
@@ -223,6 +226,7 @@ class Decoder:
         return self.n_sample_buffer
 
     def __init__(self,
+                 rx_id,
                  log=False):
         """
         The __init__ function initializes the class.
@@ -253,17 +257,16 @@ class Decoder:
             "threshold_release"]  # zscore threshold for release tones, 1 x 1, [ ]
         self.n_step = parameters["processing"][
             "n_sample_step"]  # number of time samples between each FFT, 1 x 1, [ ]
-        self.wake_up_tone = np.array(
-            parameters["processing"]["wake_up_tone"])  # wake up tones, 1 x n_wake_up_tones, [Hz]
-        self.release_tone = np.array(parameters["processing"][
-                                         "release_tone"])  # release tones, 1 x 2, [Hz]
         self.n_sample_buffer = parameters["processing"][
             "n_sample_buffer"]  # number of bins in FFT, 1 x 1, [ ]
         self.sample_rate = parameters["processing"][
             "sample_rate"]  # sample rate, 1 x 1, [Hz]
 
         # %% Get the binary release sequence from rx_id
-        self.release_sequence = get_release_sequence(parameters["rx_id"])
+        self.release_sequence = get_release_sequence(rx_id)
+        # binary release sequence, 1 x n_wake_up_tones, [Hz]
+        self.wake_up_tone = get_wake_up_tones(rx_id)  # wake up tones, 1 x n_wake_up_tones, [Hz]
+        self.release_tone = get_release_tones(rx_id)  # release tones, 1 x 2, [Hz]
 
         # %% Deducted parameters
         # maximum time sample between the first wake-up tone and the last one, 1 x 1, [ ]

@@ -4,7 +4,8 @@ import pyaudio
 from deps.decoder import Decoder
 
 # %% Initialization
-decoder = Decoder(log=True)
+RX_ID = "1"
+decoder = Decoder(RX_ID, log=True)
 
 SAMPLE_RATE = decoder.get_sample_rate()
 N_STEP = decoder.get_n_step()

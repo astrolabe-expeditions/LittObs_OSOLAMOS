@@ -1,8 +1,7 @@
 # %% Packages
-import numpy as np
 import json
 import jsbeautifier
-
+import numpy as np
 from numpy.random import randint
 
 # %% Parameters
@@ -11,7 +10,7 @@ length_sequence = 13
 
 # %% Generate sequence
 sequences = randint(low=0, high=2, size=(2048, 13))
-# first sequence is a 13-Barker Code
+# the first sequence is a 13-Barker Code
 sequences[0, :] = np.array([1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1])
 # convert to list
 sequences = sequences.tolist()

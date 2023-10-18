@@ -11,4 +11,5 @@
 .pytest_cache
 
 # ignore unit tests
+/python/unit_test.py
 .pre-commit-config.yaml

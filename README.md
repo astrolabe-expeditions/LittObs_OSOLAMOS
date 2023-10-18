@@ -4,5 +4,5 @@
 - [x] add automatic tests
 - [x] refactor main
 - [x] add more unit tests (full sequence, wake-up tones only, release tones only, real data)
-- [ ] Simply decoder routine yield
+- [ ] Add more comments
 - [ ] Compute waveform optimal values

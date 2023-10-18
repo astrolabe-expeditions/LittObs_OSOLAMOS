@@ -1,53 +1,75 @@
 # %% Packages
+import sys
+import json
+import jsbeautifier
 import numpy as np
 import scipy.io.wavfile as wavf
+
 from scipy.signal.windows import tukey
+from python.deps.get_release_sequence import get_release_sequence
+
+# %% Script options
+generate_file_name = "data/Tx/tx_full_sequence.wav"
+rx_id = "1"
+
+# %% Open config file
+with open(sys.path[0] + "/config/config.json", encoding="utf-8") as file:
+    parameters = json.load(file)
 
 # %% Parameters
-pulse_width = 0.8  # pulse width, 1 x 1, [s]
-pulse_interval = 1  # pulse interval repetition, 1 x 1, [s]
-power_tx = 1  # power of the transmitted signal, 1 x 1, [W]
-sampling_freq = 48_000  # sampling frequency, 1 x 1, [Hz]
-carrier_freq = 10_000  # carrier frequency, 1 x 1, [Hz]
-n_sample_buffer = 128
-file_name = "data/Tx/tx_release_sequence.wav"
+pulse_width = parameters["waveform"]["pulse_width"]  # pulse width, 1 x 1, [s]
+pulse_interval = parameters["waveform"]["pulse_repetition_interval"]  # pulse interval repetition, 1 x 1, [s]
+sampling_freq = parameters["processing"]["sample_rate"]  # sampling frequency, 1 x 1, [Hz]
+carrier_freq = parameters["waveform"]["carrier_frequency"]  # carrier frequency, 1 x 1, [Hz]
+n_sample_buffer = parameters["processing"]["n_sample_buffer"]  # number of bins in FFT, 1 x 1, [ ]
+release_sequence = get_release_sequence(rx_id)  # binary release sequence, 1 x 1, [ ]
+
+# %% Generate wake-up tones and release tones
+wake_up_tones = np.array([-10, 0, 10]) * sampling_freq / n_sample_buffer + carrier_freq
+wake_up_tones[wake_up_tones < 0] = sampling_freq + wake_up_tones[wake_up_tones < 0]
+release_tones = 20 * sampling_freq / n_sample_buffer * (2 * release_sequence - 1) + carrier_freq
 
 # %% Deducted parameters
 sampling_prd = 1 / sampling_freq  # sampling period, 1 x 1, [s]
-amp_tx = 32768  # amplitude of the transmitted
-# signal, 1 x 1, [V]
-sub_sampling_factor = int(pulse_interval / sampling_prd)
-# sub sampling period (nyquist period
-# to symbol period), 1 x 1, [ ]
-
-# %% Generate wake-up tones and release tones
-wake_up_tone = np.array([-2, 0, 2]) * sampling_freq / n_sample_buffer + carrier_freq
-n_symb_preamb = len(wake_up_tone)
-wake_up_tone[wake_up_tone < 0] = sampling_freq + wake_up_tone[wake_up_tone < 0]
-release_tones = 4 * sampling_freq / n_sample_buffer * np.array(
-    [1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1]) + carrier_freq
-n_pulse = len(release_tones)  # number of pulses, 1 x 1, [ ]
+n_release_tones = len(release_tones)  # number of release tones, 1 x 1, [ ]
+n_wake_up_tones = len(wake_up_tones)  # number of wake-up tones, 1 x 1, [ ]
 
 # %% Generate Tx signal
-t_recording = (n_symb_preamb + n_pulse) * pulse_interval
-t = np.arange(0, t_recording, sampling_prd)
-s_tx = 0
+time_recording = (n_wake_up_tones + n_release_tones) * pulse_interval
+time = np.arange(0, time_recording, sampling_prd)
+s_tx = np.zeros(len(time), dtype="complex")
 
-for i_pulse in range(n_pulse + n_symb_preamb):
-    if i_pulse <= n_symb_preamb - 1:
-        pulse_freq = wake_up_tone[i_pulse]
+for i_pulse in range(n_release_tones + n_wake_up_tones):
+    if i_pulse <= n_wake_up_tones - 1:
+        pulse_freq = wake_up_tones[i_pulse]
 
     else:
-        pulse_freq = release_tones[i_pulse - n_symb_preamb]
+        pulse_freq = release_tones[i_pulse - n_wake_up_tones]
 
-    door_tx = np.where(np.logical_and(t - i_pulse * pulse_interval >= 0,
-                                      t - i_pulse * pulse_interval < pulse_width),
+    door_tx = np.where(np.logical_and(time - i_pulse * pulse_interval >= 0,
+                                      time - i_pulse * pulse_interval < pulse_width),
                        1.0, 0.0)
     door_tx[door_tx == 1.0] = tukey(int(door_tx.sum()))
 
-    if i_pulse > n_symb_preamb - 1:
-        s_tx += amp_tx * np.exp(1j * 2 * np.pi * pulse_freq *
-                                (t - i_pulse * pulse_interval)) * door_tx
+    s_tx += np.exp(1j * 2 * np.pi * pulse_freq *
+                   (time - i_pulse * pulse_interval)) * door_tx
 
-s_tx = np.minimum(s_tx, 32767)
-wavf.write(file_name, sampling_freq, s_tx.real.astype(np.int16))
+# %% Get real part and scale to [-32768, 32767]
+s_tx = (s_tx.real + 1) / 2 * (32767 + 32768) - 32768
+
+# %% Save Tx signals in .wav file
+wavf.write(generate_file_name, sampling_freq, s_tx.astype(np.int16))
+
+# %% Update release_sequences.json file
+with open(sys.path[0] + "/config/release_sequences.json", mode="r", encoding="utf-8") as file:
+    rx_id_parameters = json.load(file)
+
+    rx_id_parameters[rx_id]["release_tones"] = np.unique(release_tones).tolist()
+    rx_id_parameters[rx_id]["wake_up_tones"] = wake_up_tones.tolist()
+
+    options = jsbeautifier.default_options()
+    options.indent_size = 4
+    payload = jsbeautifier.beautify(json.dumps(rx_id_parameters), options)
+
+with open(sys.path[0] + "/config/release_sequences.json", mode="w", encoding="utf-8") as file:
+    file.write(payload)

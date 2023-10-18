@@ -11,13 +11,10 @@ dictionary = {
                  },
     "processing": {"threshold_wake_up": 4,
                    "threshold_release": 4,
-                   "n_sample_buffer": 128,
+                   "n_sample_buffer": 500,
                    "n_sample_step": 128,
-                   "wake_up_tone": [9_250, 10_000, 10_750],
-                   "release_tone": [8_500, 11_500],
                    "sample_rate": 48_000
                    },
-    "rx_id": "1",
 }
 
 # %% Serializing json
@@ -26,5 +23,5 @@ options.indent_size = 4
 payload = jsbeautifier.beautify(json.dumps(dictionary), options)
 
 # %% Writing to sample.json
-with open("../config.json", "w") as outfile:
+with open("../config.json", "w", encoding="utf-8") as outfile:
     outfile.write(payload)
