@@ -9,11 +9,17 @@ n_sequences = 2048
 length_sequence = 13
 
 # %% Generate sequence
-sequences = randint(low=0, high=2, size=(2048, 13))
+sequences = randint(low=0, high=2, size=(n_sequences, length_sequence))
 # the first sequence is a 13-Barker Code
 sequences[0, :] = np.array([1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1])
+
+# Take only unique sequences
+_, index_unique = np.unique(np.array([str(e) for e in sequences]), return_index=True)
+sequences = sequences[index_unique.sort(), :].reshape(-1, length_sequence)
+
 # convert to list
 sequences = sequences.tolist()
+n_sequences = len(sequences)
 
 # %% Generate associate index
 ids = [str(current_id) for current_id in np.arange(1, n_sequences + 1).tolist()]
