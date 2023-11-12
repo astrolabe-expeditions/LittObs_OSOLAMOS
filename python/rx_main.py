@@ -33,6 +33,7 @@ if __name__ == "__main__":
 
         # %%%% Processing step
         FLAG_RELEASE = decoder.step(processing_buffer)
+        print("somthing to check")
 
     stream.stop_stream()
     stream.close()

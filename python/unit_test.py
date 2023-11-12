@@ -1,7 +1,6 @@
 """ unit tests main """
 # %% Packages
 import unittest
-import sys
 import numpy as np
 from scipy.io import wavfile
 
