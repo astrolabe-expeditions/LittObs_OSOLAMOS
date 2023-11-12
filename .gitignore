@@ -1,6 +1,9 @@
 # ignore all logs
 *.log
 
+# ignore all compiled file
+*.o
+
 # ignore all compiled python script
 *.pyc
 

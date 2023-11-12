@@ -19,7 +19,7 @@ repos:
     hooks:
       - id: unittest
         name: Full release sequence
-        entry: python3 python/unit_test.py
+        entry: python python/unit_test.py
         language: python
         'types': [ python ]
         pass_filenames: false
