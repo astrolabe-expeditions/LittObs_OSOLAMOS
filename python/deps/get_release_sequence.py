@@ -1,12 +1,13 @@
 """ returns the release sequence associated with that id. """
 # %% Packages
 import sys
-import git
 import json
 import logging
+import git
 import numpy as np
 
 # %% Init logger
+REPO = git.Repo('.', search_parent_directories=True)
 logging.basicConfig(filename=sys.path[0] + "/logs/rx_log.log",
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -25,8 +26,8 @@ def get_release_sequence(rx_id):
     :return: An array of release times
 
     """
-    repo = git.Repo('.', search_parent_directories=True)
-    with open(repo.working_tree_dir + "/config/release_sequences.json", encoding="utf-8") as file:
+
+    with open(REPO.working_tree_dir + "/config/release_sequences.json", encoding="utf-8") as file:
         dictionary = json.load(file)
 
     # find the id's index

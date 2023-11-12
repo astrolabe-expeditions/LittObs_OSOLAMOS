@@ -1,13 +1,12 @@
 # %% Packages
-import git
-import sys
 import json
 import jsbeautifier
+import git
 import numpy as np
 import scipy.io.wavfile as wavf
 
 from scipy.signal.windows import tukey
-from python.deps.get_release_sequence import get_release_sequence
+from deps.get_release_sequence import get_release_sequence
 
 # %% Script options
 GENERATE_FILE_NAME = "../data/Tx/tx_full_sequence.wav"
@@ -20,7 +19,8 @@ with open(repo.working_tree_dir + "/config/config.json", encoding="utf-8") as fi
 
 # %% Parameters
 pulse_width = parameters["waveform"]["pulse_width"]  # pulse width, 1 x 1, [s]
-pulse_interval = parameters["waveform"]["pulse_repetition_interval"]  # pulse interval repetition, 1 x 1, [s]
+pulse_interval = parameters["waveform"][
+    "pulse_repetition_interval"]  # pulse interval repetition, 1 x 1, [s]
 sampling_freq = parameters["processing"]["sample_rate"]  # sampling frequency, 1 x 1, [Hz]
 carrier_freq = parameters["waveform"]["carrier_frequency"]  # carrier frequency, 1 x 1, [Hz]
 n_sample_buffer = parameters["processing"]["n_sample_buffer"]  # number of bins in FFT, 1 x 1, [ ]

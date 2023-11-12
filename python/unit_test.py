@@ -1,9 +1,9 @@
 """ unit tests main """
 # %% Packages
-import git
 import unittest
-
+import git
 import numpy as np
+
 from scipy.io import wavfile
 from deps.decoder import Decoder
 

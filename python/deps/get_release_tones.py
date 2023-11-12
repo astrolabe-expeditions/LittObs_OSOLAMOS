@@ -1,14 +1,13 @@
 # %% Packages
-import sys
-import git
 import json
 import logging
-import numpy as np
 import git
+import numpy as np
+
 
 # %% Init logger
-repo = git.Repo('.', search_parent_directories=True)
-logging.basicConfig(filename=repo.working_tree_dir + "/python/logs/rx_log.log",
+REPO = git.Repo('.', search_parent_directories=True)
+logging.basicConfig(filename=REPO.working_tree_dir + "/python/logs/rx_log.log",
                     filemode='w',
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
@@ -25,8 +24,7 @@ def get_release_tones(rx_id):
     """
 
     # get json payload
-    repo = git.Repo('.', search_parent_directories=True)
-    with open(repo.working_tree_dir + "/config/release_sequences.json", encoding="utf-8") as file:
+    with open(REPO.working_tree_dir + "/config/release_sequences.json", encoding="utf-8") as file:
         dictionary = json.load(file)
 
     # find the id's index
