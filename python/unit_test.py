@@ -10,6 +10,7 @@ from deps.decoder import Decoder
 RX_ID = "1"
 REPO = git.Repo('.', search_parent_directories=True)
 
+
 class RxTest(unittest.TestCase):
     """
         RxTest object
