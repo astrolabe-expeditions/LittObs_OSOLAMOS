@@ -1,4 +1,5 @@
 # %% Packages
+import git
 import sys
 import json
 import jsbeautifier
@@ -13,7 +14,8 @@ GENERATE_FILE_NAME = "../data/Tx/tx_full_sequence.wav"
 RX_ID = "1"
 
 # %% Open config file
-with open("../config/config.json", encoding="utf-8") as file:
+repo = git.Repo('.', search_parent_directories=True)
+with open(repo.working_tree_dir + "/config/config.json", encoding="utf-8") as file:
     parameters = json.load(file)
 
 # %% Parameters

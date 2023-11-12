@@ -1,5 +1,6 @@
 """ Flag to symbol definition """
 
+
 def flag_tones_to_symbol(flag):
     """
     The flag_tones_to_symbol function takes a flag as input and

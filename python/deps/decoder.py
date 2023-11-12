@@ -2,6 +2,7 @@
 import logging
 import json
 import sys
+import git
 import numpy as np
 
 from .get_release_tones import get_release_tones
@@ -238,7 +239,8 @@ class Decoder:
         """
 
         # %% Parameters
-        with open("../config/config.json", encoding="utf-8") as file:
+        repo = git.Repo('.', search_parent_directories=True)
+        with open(repo.working_tree_dir + "/config/config.json", encoding="utf-8") as file:
             parameters = json.load(file)
 
         # waveform parameters

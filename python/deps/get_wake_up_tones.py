@@ -1,5 +1,6 @@
 # %% Packages
 import sys
+import git
 import json
 import logging
 import numpy as np
@@ -25,7 +26,8 @@ def get_wake_up_tones(rx_id):
     """
 
     # get json payload
-    with open("../config/release_sequences.json", encoding="utf-8") as file:
+    repo = git.Repo('.', search_parent_directories=True)
+    with open(repo.working_tree_dir + "/config/release_sequences.json", encoding="utf-8") as file:
         dictionary = json.load(file)
 
     # find the id's index
