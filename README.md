@@ -6,3 +6,4 @@
 - [x] add more unit tests (full sequence, wake-up tones only, release tones only, real data)
 - [ ] Add more comments
 - [ ] Compute waveform optimal values
+- [ ] Make absolute file path (Linux and windows) 

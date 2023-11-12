@@ -22,7 +22,7 @@ def get_release_tones(rx_id):
     """
 
     # get json payload
-    with open(sys.path[0] + "/config/release_sequences.json", encoding="utf-8") as file:
+    with open("../config/release_sequences.json", encoding="utf-8") as file:
         dictionary = json.load(file)
 
     # find the id's index

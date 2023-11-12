@@ -238,7 +238,7 @@ class Decoder:
         """
 
         # %% Parameters
-        with open(sys.path[0] + "/config/config.json", encoding="utf-8") as file:
+        with open("../config/config.json", encoding="utf-8") as file:
             parameters = json.load(file)
 
         # waveform parameters

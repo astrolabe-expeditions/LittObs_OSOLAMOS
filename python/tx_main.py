@@ -9,11 +9,11 @@ from scipy.signal.windows import tukey
 from python.deps.get_release_sequence import get_release_sequence
 
 # %% Script options
-GENERATE_FILE_NAME = "data/Tx/tx_full_sequence.wav"
+GENERATE_FILE_NAME = "../data/Tx/tx_full_sequence.wav"
 RX_ID = "1"
 
 # %% Open config file
-with open(sys.path[0] + "/config/config.json", encoding="utf-8") as file:
+with open("../config/config.json", encoding="utf-8") as file:
     parameters = json.load(file)
 
 # %% Parameters
@@ -61,7 +61,7 @@ s_tx = (s_tx.real + 1) / 2 * (32767 + 32768) - 32768
 wavf.write(GENERATE_FILE_NAME, sampling_freq, s_tx.astype(np.int16))
 
 # %% Update release_sequences.json file
-with open(sys.path[0] + "/config/release_sequences.json", mode="r", encoding="utf-8") as file:
+with open("../config/release_sequences.json", mode="r", encoding="utf-8") as file:
     rx_id_parameters = json.load(file)
 
     rx_id_parameters[RX_ID]["release_tones"] = np.unique(release_tones).tolist()
@@ -71,5 +71,5 @@ with open(sys.path[0] + "/config/release_sequences.json", mode="r", encoding="ut
     options.indent_size = 4
     payload = jsbeautifier.beautify(json.dumps(rx_id_parameters), options)
 
-with open(sys.path[0] + "/config/release_sequences.json", mode="w", encoding="utf-8") as file:
+with open("../config/release_sequences.json", mode="w", encoding="utf-8") as file:
     file.write(payload)

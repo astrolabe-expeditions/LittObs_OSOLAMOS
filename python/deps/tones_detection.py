@@ -1,7 +1,6 @@
 """ Tones detection """
 import numpy as np
 
-
 def tones_detection(signal,
                     index_tones,
                     threshold):

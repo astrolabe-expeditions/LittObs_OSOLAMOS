@@ -34,7 +34,7 @@ class RxTest(unittest.TestCase):
         n_step = decoder.get_n_step()
         n_sample_buffer = decoder.get_n_sample_buffer()
 
-        _, s_rx = wavfile.read(sys.path[0] + '/data/Tx/tx_full_sequence.wav')
+        _, s_rx = wavfile.read('../data/Tx/tx_full_sequence.wav')
 
         # %%% While loop initialization
         flag_release = False
@@ -74,7 +74,7 @@ class RxTest(unittest.TestCase):
         n_step = decoder.get_n_step()
         n_sample_buffer = decoder.get_n_sample_buffer()
 
-        _, s_rx = wavfile.read(sys.path[0] + '/data/Tx/tx_wake_up_sequence.wav')
+        _, s_rx = wavfile.read('../data/Tx/tx_wake_up_sequence.wav')
 
         # %%% While loop initialization
         flag_release = False
@@ -114,7 +114,7 @@ class RxTest(unittest.TestCase):
         n_step = decoder.get_n_step()
         n_sample_buffer = decoder.get_n_sample_buffer()
 
-        _, s_rx = wavfile.read(sys.path[0] + '/data/Tx/tx_release_sequence.wav')
+        _, s_rx = wavfile.read('../data/Tx/tx_release_sequence.wav')
 
         # %%% While loop initialization
         flag_release = False

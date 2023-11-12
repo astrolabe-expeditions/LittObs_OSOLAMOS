@@ -24,7 +24,7 @@ def get_release_sequence(rx_id):
     :return: An array of release times
 
     """
-    with open(sys.path[0] + "/config/release_sequences.json", encoding="utf-8") as file:
+    with open("../config/release_sequences.json", encoding="utf-8") as file:
         dictionary = json.load(file)
 
     # find the id's index
