@@ -1,6 +1,5 @@
 """ unit tests main """
 # %% Packages
-import unittest
 import git
 import numpy as np
 
@@ -11,7 +10,7 @@ RX_ID = "1"
 REPO = git.Repo('.', search_parent_directories=True)
 
 
-class RxTest(unittest.TestCase):
+class TestClassRx:
     """
         RxTest object
     """
@@ -35,7 +34,7 @@ class RxTest(unittest.TestCase):
         n_step = decoder.get_n_step()
         n_sample_buffer = decoder.get_n_sample_buffer()
 
-        _, s_rx = wavfile.read(REPO.working_tree_dir + '/data/Tx/tx_full_sequence.wav')
+        __, s_rx = wavfile.read(REPO.working_tree_dir + '/data/Tx/tx_full_sequence.wav')
 
         # %%% While loop initialization
         flag_release = False
@@ -53,7 +52,7 @@ class RxTest(unittest.TestCase):
             if flag_release is True:
                 break
 
-        self.assertEqual(True, flag_release)
+        assert flag_release
 
     def test_wake_up_sequence(self):
         """
@@ -78,8 +77,8 @@ class RxTest(unittest.TestCase):
         _, s_rx = wavfile.read(REPO.working_tree_dir + '/data/Tx/tx_wake_up_sequence.wav')
 
         # %%% While loop initialization
-        flag_release = False
-        flag_wake_up = False
+        is_released = False
+        is_awake = False
         processing_buffer = np.zeros(n_sample_buffer, dtype=np.int16)
 
         # %%% While loop
@@ -89,12 +88,11 @@ class RxTest(unittest.TestCase):
             processing_buffer[-n_step:] = s_rx[i * n_step: (i + 1) * n_step]
 
             # %%%% Processing step
-            flag_release = decoder.step(processing_buffer)
+            is_released = decoder.step(processing_buffer)
 
             # %%%% Check wake-up status
-            flag_wake_up = decoder.flag_wake_up
-
-        self.assertEqual(True, (not flag_release) and flag_wake_up)
+            is_awake = decoder.flag_wake_up
+        assert (not is_released) and is_awake
 
     def test_release_sequence(self):
         """
@@ -105,7 +103,7 @@ class RxTest(unittest.TestCase):
         check if the decoder can detect it.
 
         :param self: Represent the instance of the class
-        :return: True, not flag_release and not flag_wake_up
+        :return: True, not is_released and not is_awake
 
         """
 
@@ -118,8 +116,8 @@ class RxTest(unittest.TestCase):
         _, s_rx = wavfile.read(REPO.working_tree_dir + '/data/Tx/tx_release_sequence.wav')
 
         # %%% While loop initialization
-        flag_release = False
-        flag_wake_up = False
+        is_released = False
+        is_awake = False
         processing_buffer = np.zeros(n_sample_buffer, dtype=np.int16)
 
         # %%% While loop
@@ -129,12 +127,12 @@ class RxTest(unittest.TestCase):
             processing_buffer[-n_step:] = s_rx[i * n_step: (i + 1) * n_step]
 
             # %%%% Processing step
-            flag_release = decoder.step(processing_buffer)
+            is_released = decoder.step(processing_buffer)
 
             # %%%% Check wake-up status
-            flag_wake_up = decoder.flag_wake_up
+            is_awake = decoder.flag_wake_up
 
-        self.assertEqual(True, not flag_release and not flag_wake_up)
+        assert not is_released and not is_awake
 
     # def test_real_data(self):
     #     """
@@ -177,7 +175,3 @@ class RxTest(unittest.TestCase):
     #         flag_wake_up = decoder.flag_wake_up
     #
     #     self.assertEqual(True, flag_release and flag_wake_up)
-
-
-if __name__ == '__main__':
-    unittest.main()
