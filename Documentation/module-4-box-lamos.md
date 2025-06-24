@@ -22,7 +22,7 @@
 * tournevis
 * clé à molette
 
-## **Étape 1 : Insérer les inserts filetés dans les pièces 3D**
+## **Étape 1 : Insérer les inserts filetés dans les parois 3D**
 
 Positionner les inserts filetés sur les pièces 3D au niveau des trous prévus à cet effet. Puis, faire chauffer les inserts avec un fer à souder afin de les insérer dans les pièces 3D.
 
@@ -32,23 +32,25 @@ Attention à ce que la chaleur du fer à souder ne crée pas des bourrelets auto
 
 Insérer la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.
 
-Placer la bobine maintenant équipée de la drisse dyneema dans les deux portes bobine.
+Placer la bobine maintenant équipée de la drisse dyneema dans les deux supports pour bobine.
 
-## **Étape 3 : Visser les pièces 3D sur les plaques en plexiglass**
+## **Étape 3 : Visser les pièces 3D sur une des plaques en plexiglass**
 
 À partir du schéma suivant :
 
 
 
-Fixer le porte goupille avec 4 vis M4 16mm et 4 écrous M4.&#x20;
+Fixer le porte goupille avec 4 vis M4 16mm et 4 écrous M4 sur la surface intérieure de la plaque.
 
-Fixer la bobine avec 4 vis M4 25mm et 4 écrous M4.
+Fixer la bobine avec 4 vis M4 25mm et 4 écrous M4 sur la surface intérieure de la plaque.
 
-Fixer le crochet avec 4 vis M4 25mm et 4 écrous M4.
+Fixer le crochet avec 4 vis M4 25mm et 4 écrous M4 sur la surface intérieure de la plaque.
 
-Fixer le moteur avec 6 vis M3 10mm.
+Fixer les supports pour caisson avec 4 vis M4 25mm et 4 écrous M4 sur la surface extérieure de la plaque.
 
-Attention à visser les écrous du côté des pièces 3D afin de garder la surface extérieure des plaques en plexiglass facilement manipulable à la main !
+Fixer le moteur avec 6 vis M3 10mm sur la surface intérieure de la plaque.
+
+Attention à visser les écrous du côté des pièces 3D afin de garder la surface extérieure de la plaque facilement manipulable à la main !
 
 ## **Étape 4 : Visser les plaques en plexiglass sur les parois 3D**
 
@@ -59,6 +61,8 @@ Attention à visser les écrous du côté des pièces 3D afin de garder la surfa
 Fixer, dans un premier temps, les 2 plaques en plexiglass d'épaisseur 5mm avec 7 vis M3 10mm et 6 vis M5 20mm dans les inserts.
 
 Fixer, dans un deuxième temps, les 4 plaques en plexiglass d'épaisseur 2mm avec 16 vis M3 10mm dans les inserts.
+
+Si les plaques ne se positionnent pas bien face aux inserts, créer un peu de jeu avec les vis.
 
 
 
