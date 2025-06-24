@@ -1,3 +1,6 @@
-# LittObs | Larguage Acoustique pour MOuillage Sous-marin (LAMOS)
+# LittObs | LArgeur pour MOuillage Sous-marin (LAMOS)
 
-Page en construction...
+## Description&#x20;
+
+## Partenaires
+
