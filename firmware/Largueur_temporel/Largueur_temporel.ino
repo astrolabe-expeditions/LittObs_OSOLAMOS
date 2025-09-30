@@ -2,6 +2,7 @@
 #include <DS3231.h>
 #include "BluetoothSerial.h"
 #include <Preferences.h>
+#include <ESP32Servo.h>
 
 #if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
 #error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
@@ -10,6 +11,7 @@
 DS3231 myRTC;
 BluetoothSerial SerialBT;
 Preferences preferences;
+Servo myservo;
 
 
 byte year;
@@ -129,9 +131,9 @@ void wake_up() {
     preferences.end();
 
     // release payload
-    digitalWrite(pin_magnet, HIGH);
-    delay(15000);
-    digitalWrite(pin_magnet, LOW);
+    myservo.write(180);
+    delay(2000);
+    myservo.write(0);
   } else {
     // Go back to sleep
     myRTC.checkIfAlarm(1);
@@ -146,7 +148,14 @@ void setup() {
 
   Wire.begin(22, 21);
 
-  pinMode(pin_magnet, OUTPUT);
+  ESP32PWM::allocateTimer(0);
+	ESP32PWM::allocateTimer(1);
+	ESP32PWM::allocateTimer(2);
+	ESP32PWM::allocateTimer(3);
+  myservo.setPeriodHertz(50); // standard 50 hz servo
+	myservo.attach(pin_magnet, 1000, 2000);
+
+  
   pinMode(pin_shtdwn, OUTPUT);
   digitalWrite(pin_shtdwn, LOW);
 
@@ -156,10 +165,6 @@ void setup() {
   if (state == 1) {
     wake_up();
   }
-
-  digitalWrite(pin_magnet, HIGH);
-  delay(2000);
-  digitalWrite(pin_magnet, LOW);
 }
 
 void loop() {
