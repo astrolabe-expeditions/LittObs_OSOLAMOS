@@ -8,10 +8,12 @@
 
 
 
-* Imprimante 3D (pour support à LAMOS)
+* Imprimante 3D
 * Découpeuse laser
 * Scie à métaux
 * Taurauds
 * Tournevis
 * Pince
 * Pistolet à colle
+* Clé plate 7mm
+* Fer à souder&#x20;

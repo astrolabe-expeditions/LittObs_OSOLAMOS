@@ -2,25 +2,14 @@
 
 ## Matériel
 
-* 1 [Embout à oeil à sertir Ø 5mm x L. 80mm, inox A4 316](https://www.vis-express.fr/embout-a-sertir-a-oeil-inox-a4/42806-151571-embout-a-a-sertir-a-oeil-inox-a4-diametre-5.html#/21-conditionnement-1_piece)
-* 1 [Servomoteur High Torque 40 KG Motor Micro Servo](https://rovmaker.org/product/high-torque-40-kg-motor-micro-servo/)
-* 0,5 [Plaque plexiglass épais. 2mm opaque, L. 50cm x H. 30cm ](https://plaqueplastique.fr/product/plaque-plexiglass-noir-xt-2mm/)
-* 2 [Plaque plexiglass épais. 5mm opaque, L. 50cm x H. 30cm](https://plaqueplastique.fr/product/plaque-plexiglass-noir-xt-5mm/)
-* 36 [Vis à tête cylindrique pozi M3 x L. 10mm, inox A4 316](https://fr.rs-online.com/web/p/vis-a-metaux/0190440)
-* 4[ Vis à tête cylindrique pozi M4 x L. 16mm, inox A4 316](https://fr.rs-online.com/web/p/vis-a-metaux/0190513)
-* 12 [Vis à tête cylindrique pozi M4 x L. 30mm, inox A4 316](https://fr.rs-online.com/web/p/vis-a-metaux/0189428)
-* 12 [Vis à tête cylindrique pozi M5 x L. 20mm, inox A4 316](https://fr.rs-online.com/web/p/vis-a-metaux/0190579)
-* 16 [Écrou hexagonal M4, inox A4 316](https://fr.rs-online.com/web/p/ecrous-hexagonaux/0189579?gb=s)
-* 30 [Inserts filetés ruthex M3](https://www.ruthex.de/fr/collections/gewindeeinsatze/products/ruthex-gewindeeinsatz-m3-100-stuck-rx-m3x5-7-messing-gewindebuchsen)
-* 12 [Inserts filetés ruthex M5](https://www.ruthex.de/fr/collections/gewindeeinsatze/products/ruthex-gewindeeinsatz-m5-50-stuck-rx-m5x9-5-messing-gewindebuchsen)
-* 0,25 [Filament 3D PETG 1kg noir 1,75 mm](https://www.grossiste3d.com/petg/795-filament-3d-petg-1-kg-noir-175-mm-3008800007691.html)
-* 13m [Drisse Dyneema Ø 4mm](https://www.uship.fr/accastillage-et-greement/cordage/dyneema-et-surgaine/drisse-dyneema-pro-bleu-4-34753.html)
+<table data-header-hidden><thead><tr><th width="109">Quantité</th><th>Matériel</th></tr></thead><tbody><tr><td>1</td><td><a href="https://www.vis-express.fr/embout-a-sertir-a-oeil-inox-a4/42806-151571-embout-a-a-sertir-a-oeil-inox-a4-diametre-5.html#/21-conditionnement-1_piece">Goupille Embout à oeil à sertir Ø 5mm x L. 80mm, inox A4 316</a></td></tr><tr><td>1</td><td><a href="https://rovmaker.org/product/high-torque-40-kg-motor-micro-servo/">Servomoteur High Torque 40 KG Motor Micro Servo</a></td></tr><tr><td>0,5</td><td><a href="https://plaqueplastique.fr/product/plaque-plexiglass-noir-xt-2mm/">Plaque plexiglass épais. 2mm opaque, L. 50cm x H. 30cm</a></td></tr><tr><td>2</td><td><a href="https://plaqueplastique.fr/product/plaque-plexiglass-noir-xt-5mm/">Plaque plexiglass épais. 5mm opaque, L. 50cm x H. 30cm</a></td></tr><tr><td>36</td><td><a href="https://fr.rs-online.com/web/p/vis-a-metaux/0190440">Vis à tête cylindrique pozi M3 x L. 10mm, inox A4 316</a></td></tr><tr><td>4</td><td><a href="https://fr.rs-online.com/web/p/vis-a-metaux/0190513">Vis à tête cylindrique pozi M4 x L. 16mm, inox A4 316</a></td></tr><tr><td>12</td><td><a href="https://fr.rs-online.com/web/p/vis-a-metaux/0189428">Vis à tête cylindrique pozi M4 x L. 30mm, inox A4 316</a></td></tr><tr><td>12</td><td><a href="https://www.vis-express.fr/vis-metaux-tete-hexagonale-th-inox-a4-din-933/37747-2562188-vis-metaux-tete-hexagonale-th-m5x20-inox-a4.html#/270-conditionnement-30_pieces">Vis métaux Tête hexagonale M5 x 20mm, inox A4 316</a></td></tr><tr><td>16</td><td><a href="https://www.vis-express.fr/ecrou-hexagonal-hu-inox-a4-din-934-din-934-vs0100/37758-2555491-ecrou-hexagonal-hu-m4-inox-a4.html#/267-conditionnement-200_pieces">Écrou hexagonal M4, inox A4 316</a></td></tr><tr><td>12</td><td><a href="https://www.ruthex.de/fr/collections/gewindeeinsatze/products/ruthex-gewindeeinsatz-m5-50-stuck-rx-m5x9-5-messing-gewindebuchsen">Inserts filetés ruthex M5</a></td></tr><tr><td>30</td><td><a href="https://www.ruthex.de/fr/collections/gewindeeinsatze/products/ruthex-gewindeeinsatz-m3-100-stuck-rx-m3x5-7-messing-gewindebuchsen">Inserts filetés ruthex M3</a></td></tr><tr><td>0,25</td><td><a href="https://www.grossiste3d.com/petg/795-filament-3d-petg-1-kg-noir-175-mm-3008800007691.html">Filament 3D PETG 1kg noir 1,75 mm</a></td></tr><tr><td>1</td><td><a href="https://www.h2r-equipements.com/cordage-et-matelage-pour-bateau/29246-36212-marlow-tresse-dechaussee-excel-d12-dsk78-noir.html#/17909-diametre-o_3_mm%20ou%20https://www.uship.fr/accastillage-et-greement/cordage/dyneema-et-surgaine/drisse-dyneema-pro-gris-3-32305.html">Drisse Dyneema Ø 3 mm</a></td></tr></tbody></table>
 
 ## Outils&#x20;
 
-* fer à souder
-* tournevis
-* clé à molette
+* Imprimante 3D (pour support à LAMOS)
+* Découpeuse laser
+* Fer à souder
+* Tournevis
 
 ## **Étape 1 : Insérer les inserts filetés dans les parois 3D**
 
