@@ -94,9 +94,9 @@ Si les plaques ne se positionnent pas bien face aux inserts, créez un peu de je
 
 ## **Étape 5 : Fixer la drisse dyneema dans la bobine**
 
-Insérer la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.&#x20;
+<mark style="color:$warning;background-color:$danger;">Insérer la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.</mark>&#x20;
 
-Placer la bobine maintenant équipée de la drisse dyneema dans les deux supports pour bobine.
+<mark style="color:$warning;background-color:$danger;">Placer la bobine maintenant équipée de la drisse dyneema dans les deux supports pour bobine.</mark>
 
 ## **Étape 5 : Assembler le système de largage**
 
