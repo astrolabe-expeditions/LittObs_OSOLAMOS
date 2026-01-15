@@ -49,49 +49,90 @@
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (10).png" alt=""><figcaption></figcaption></figure>
 
+{% file src=".gitbook/assets/12_14_15.a_15.b_murs_LAMOS.pdf" %}
 
+{% file src=".gitbook/assets/17_Face A_LAMOS.pdf" %}
 
-## **Insérer les inserts filetés dans les parois 3D**
+{% file src=".gitbook/assets/18_Face B_LAMOS.pdf" %}
 
-Positionner les inserts filetés sur les pièces 3D au niveau des trous prévus à cet effet. Puis, faire chauffer les inserts avec un fer à souder afin de les insérer dans les pièces 3D.
+{% file src=".gitbook/assets/12_14_15.a_15.b_murs_LAMOS.pdf" %}
+
+## **Étape 3 : Insérer les inserts filetés dans les parois 3D**
+
+Positionner les inserts filetés sur les pièces 3D au niveau des trous prévus à cet effet. Puis, faire chauffer les inserts avec un fer à souder afin de les insérer dans les pièces 3D. (Pas besoin d’inserts pour les pièces : 04, 05a, 05b, 07, 08a et 08b)
 
 Attention à ce que la chaleur du fer à souder ne crée pas des bourrelets autour des inserts ! Le cas échéant, limer les pièces 3D afin de garder une surface lisse.
 
-## **Étape 2 : Fixer** la drisse dyneema **dans la bobine**
+<div align="center"><figure><img src=".gitbook/assets/1000056525 (1).jpg" alt="" width="188"><figcaption></figcaption></figure></div>
 
-Insérer la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.
+## **Étape 4 : Assembler des murs et paroies**
+
+**À partir du schéma suivant :**
+
+<div><figure><img src=".gitbook/assets/Pièces LAMOS LittObs (11) (1).png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/20250918_185842 (1).jpg" alt="" width="563"><figcaption></figcaption></figure></div>
+
+Visser les pièces 3D 01, 02, 03 et 04 sur la plaque en plexiglass 17
+
+* 01 (mur avant) à l’aide de 1 petite visse M3 et 4 grandes visses M5
+* 02 (mur gauche) à l’aide de 4 petites visses M3
+* 03 (mur arrière) à l’aide de 2 grandes visses M5
+* 04 (mur droit) à l’aide de 2 petites visses M3
+
+**À partir du schéma suivant :**
+
+<div><figure><img src=".gitbook/assets/Pièces LAMOS LittObs (12).png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.09.54.jpeg.png" alt=""><figcaption></figcaption></figure></div>
+
+* Visser la paroi arrière gauche (15a) entre les pièces 02 et 03 avec 04 petites visses M3
+* Visser la paroi arrière droite (15b) entre les pièces 03 et 06 avec 04 petites visses M3
+
+<mark style="color:$warning;">ATTENTION les parois 15a et 15b ne font pas la même taille ! 15a est plus petite que 15b</mark>
+
+* Visser la paroi gauche (14) entre les pièces 02 et 03 avec 4 petites visses M3
+* Visser la paroi droite (19) entre les pièces 01 et 06 avec 4 petites visses M3
+
+Si les plaques ne se positionnent pas bien face aux inserts, créez un peu de jeu avec les vis.
+
+## **Étape 5 : Fixer la drisse dyneema dans la bobine**
+
+Insérer la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.&#x20;
 
 Placer la bobine maintenant équipée de la drisse dyneema dans les deux supports pour bobine.
 
-## **Étape 3 : Visser les pièces 3D sur une des plaques en plexiglass**
+## **Étape 5 : Assembler le système de largage**
 
-À partir du schéma suivant :
+**À partir du schéma suivant et en suivant l'ordre des étapes :**
 
+<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (13).png" alt=""><figcaption></figcaption></figure>
 
+* Visser la pièce 18 avec les pièces :
+  * 16 (moteur) avec 6 petites visses M3.
+* Visser les pièces 10 et 11 à l’aide d’une visse moyenne M4 et d’une rondelle en silicone.
+* Visser les pièces 11, et 13 à l’aide d'une visse moyennes M4.
 
-Fixer le porte goupille avec 4 vis M4 16mm et 4 écrous M4 sur la surface intérieure de la plaque.
+<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (14).png" alt=""><figcaption></figcaption></figure>
 
-Fixer la bobine avec 4 vis M4 25mm et 4 écrous M4 sur la surface intérieure de la plaque.
+* Visser la pièce 10 à l’extrémité du moteur (16) à l'aide de <mark style="color:$warning;background-color:$danger;">?? visses</mark> .
 
-Fixer le crochet avec 4 vis M4 25mm et 4 écrous M4 sur la surface intérieure de la plaque.
+<figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.06 (1) (1).jpeg" alt="" width="188"><figcaption></figcaption></figure>
 
-Fixer les supports pour caisson avec 4 vis M4 25mm et 4 écrous M4 sur la surface extérieure de la plaque.
+* Visser la pièce 18 avec les pièces :
+  * 07 (porte goupille) à l’aide de 4 grandes visses M5 et 4 écrous.
+* Placer la goupille (13) dans le porte goupille (07).
+* Visser la pièce 18 avec les pièces :
+  * 05A (fixation gauche) à l’aide de 4 moyennes visses M4, 2 rondelles en silicone et 2 écrous.
+* Emboiter le tube enrouleur équipée de la drisse dyneema (pièce 04) avec la fixation gauche (pièce 05A) à partir de l'extrémité opposé au trou de passage du boute.&#x20;
+* Visser la pièce 18 avec les pièces :
+  * 05B (fixation droite) à l’aide de 4 moyennes visses M4, 2 rondelles en silicone et 2 écrous.
+  * 09 (mousqueton) à l’aide de 4 grandes visses M5 et 4 écrous.
+* Sur l’autre face de la pièce 18 visser les pièces 8a et 8b avec des 4 visses M4 de 25mm
 
-Fixer le moteur avec 6 vis M3 10mm sur la surface intérieure de la plaque.
+<div><figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.09.49.jpeg.png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.00.jpeg.png" alt=""><figcaption></figcaption></figure></div>
 
-Attention à visser les écrous du côté des pièces 3D afin de garder la surface extérieure de la plaque facilement manipulable à la main !
+<mark style="color:$warning;">Attention à visser les écrous du côté des pièces 3D afin de garder la surface extérieure de la plaque facilement manipulable à la main !</mark>
 
-## **Étape 4 : Visser les plaques en plexiglass sur les parois 3D**
+## **Étape 6 : Assembler l'ensemble**
 
-À partir du schéma suivant :
-
-
-
-Fixer, dans un premier temps, les 2 plaques en plexiglass d'épaisseur 5mm avec 7 vis M3 10mm et 6 vis M5 20mm dans les inserts.
-
-Fixer, dans un deuxième temps, les 4 plaques en plexiglass d'épaisseur 2mm avec 16 vis M3 10mm dans les inserts.
-
-Si les plaques ne se positionnent pas bien face aux inserts, créer un peu de jeu avec les vis.
+Visser la pièce 18 avec les murs 01, 02,03 et 04 à l'aide de <mark style="color:$warning;background-color:$danger;">?? visses.</mark>
 
 
 
