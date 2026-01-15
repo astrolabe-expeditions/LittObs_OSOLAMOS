@@ -4,5 +4,5 @@
 * [Module 1 : Carte électronique LAMOS](module-1-carte-electronique-lamos.md)
 * [Module 2 : Programmation PCB](module-2-programmation-pcb.md)
 * [Module 3 : Caisson moteur LAMOS](module-3-caisson-moteur-lamos.md)
-* [Module 4 : Box LAMOS](module-4-box-lamos.md)
+* [Module 4 : Caisson enrouleur LAMOS](module-4-caisson-enrouleur-lamos.md)
 * [Module 5 : Ligne de mouillage](module-5-ligne-de-mouillage.md)

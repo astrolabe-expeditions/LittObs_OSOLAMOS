@@ -1,4 +1,4 @@
-# Module 4 : Box LAMOS
+# Module 4 : Caisson enrouleur LAMOS
 
 ## Matériel
 
@@ -11,7 +11,47 @@
 * Fer à souder
 * Tournevis
 
-## **Étape 1 : Insérer les inserts filetés dans les parois 3D**
+## Pièces :&#x20;
+
+<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (8).png" alt=""><figcaption></figcaption></figure>
+
+## **Étape 1 : Impressions 3D**&#x20;
+
+À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimer les pièces 1, 2, 3, 4, 5a et 5b, 6, 7, 8a et 8b, 9, 10 et 11 à 40% de remplissage.&#x20;
+
+<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (9).png" alt=""><figcaption></figcaption></figure>
+
+{% file src=".gitbook/assets/1_mur_avant.stl" %}
+
+{% file src=".gitbook/assets/2_mur_gauche.stl" %}
+
+{% file src=".gitbook/assets/3_mur_arriere.stl" %}
+
+{% file src=".gitbook/assets/4_mur_droit.stl" %}
+
+{% file src=".gitbook/assets/5.a_fixation_enrouleur_1.stl" %}
+
+{% file src=".gitbook/assets/5.b_fixation_enrouleur_2.stl" %}
+
+{% file src=".gitbook/assets/6_enrouleur.stl" %}
+
+{% file src=".gitbook/assets/7_porte goupille-2 v10mm.stl" %}
+
+{% file src=".gitbook/assets/8.a_8.b_attache_tube_64mm (1).stl" %}
+
+{% file src=".gitbook/assets/9_mousqueton.stl" %}
+
+<mark style="color:$warning;background-color:$danger;">**MANQUE PIECES 10 ET 11**</mark>&#x20;
+
+## **Etape 2 : Découpes laser**&#x20;
+
+À l'aide d'une découpeuse laser et des fichiers ci-dessous, découpez les pièces 12, 14, 15a et 15b dans des plaques de plexiglass de 2mm et les pièces 17 et 18 dans des plaques de plexiglass de 5mm.
+
+<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (10).png" alt=""><figcaption></figcaption></figure>
+
+
+
+## **Insérer les inserts filetés dans les parois 3D**
 
 Positionner les inserts filetés sur les pièces 3D au niveau des trous prévus à cet effet. Puis, faire chauffer les inserts avec un fer à souder afin de les insérer dans les pièces 3D.
 
