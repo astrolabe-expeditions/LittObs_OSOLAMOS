@@ -1,3 +1,9 @@
+---
+description: >-
+  Cette page vous détaille étape par étape comment construire un caisson
+  enrouleur LAMOS
+---
+
 # Module 4 : Caisson enrouleur LAMOS
 
 ## Matériel
