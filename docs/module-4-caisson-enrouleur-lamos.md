@@ -23,7 +23,7 @@ description: >-
 
 ## **Étape 1 : Impressions 3D**&#x20;
 
-À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimer les pièces 1, 2, 3, 4, 5a et 5b, 6, 7, 8a et 8b, 9, 10 et 11 à 40% de remplissage.&#x20;
+À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimez les pièces 1, 2, 3, 4, 5a et 5b, 6, 7, 8a et 8b, 9, 10 et 11 à 40% de remplissage.&#x20;
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (9).png" alt=""><figcaption></figcaption></figure>
 
@@ -65,9 +65,9 @@ description: >-
 
 ## **Étape 3 : Insérer les inserts filetés dans les parois 3D**
 
-Positionner les inserts filetés sur les pièces 3D au niveau des trous prévus à cet effet. Puis, faire chauffer les inserts avec un fer à souder afin de les insérer dans les pièces 3D. (Pas besoin d’inserts pour les pièces : 04, 05a, 05b, 07, 08a et 08b)
+Positionnez les inserts filetés sur les pièces 3D au niveau des trous prévus à cet effet. Puis, faites chauffer les inserts avec un fer à souder afin de les insérer dans les pièces 3D. (Pas besoin d’inserts pour les pièces : 04, 05a, 05b, 07, 08a et 08b)
 
-Attention à ce que la chaleur du fer à souder ne crée pas des bourrelets autour des inserts ! Le cas échéant, limer les pièces 3D afin de garder une surface lisse.
+Attention à ce que la chaleur du fer à souder ne crée pas des bourrelets autour des inserts ! Le cas échéant, limez les pièces 3D afin de garder une surface lisse.
 
 <div align="center"><figure><img src=".gitbook/assets/1000056525 (1).jpg" alt="" width="188"><figcaption></figcaption></figure></div>
 
@@ -77,7 +77,7 @@ Attention à ce que la chaleur du fer à souder ne crée pas des bourrelets auto
 
 <div><figure><img src=".gitbook/assets/Pièces LAMOS LittObs (11) (1).png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/20250918_185842 (1).jpg" alt="" width="563"><figcaption></figcaption></figure></div>
 
-Visser les pièces 3D 01, 02, 03 et 04 sur la plaque en plexiglass 17
+Vissez les pièces 3D 01, 02, 03 et 04 sur la plaque en plexiglass 17
 
 * 01 (mur avant) à l’aide de 1 petite visse M3 et 4 grandes visses M5
 * 02 (mur gauche) à l’aide de 4 petites visses M3
@@ -88,19 +88,19 @@ Visser les pièces 3D 01, 02, 03 et 04 sur la plaque en plexiglass 17
 
 <div><figure><img src=".gitbook/assets/Pièces LAMOS LittObs (12).png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.09.54.jpeg.png" alt=""><figcaption></figcaption></figure></div>
 
-* Visser la paroi arrière gauche (15a) entre les pièces 02 et 03 avec 04 petites visses M3
-* Visser la paroi arrière droite (15b) entre les pièces 03 et 06 avec 04 petites visses M3
+* Vissez la paroi arrière gauche (15a) entre les pièces 02 et 03 avec 04 petites visses M3
+* Vissez la paroi arrière droite (15b) entre les pièces 03 et 06 avec 04 petites visses M3
 
 <mark style="color:$warning;">ATTENTION les parois 15a et 15b ne font pas la même taille ! 15a est plus petite que 15b</mark>
 
-* Visser la paroi gauche (14) entre les pièces 02 et 03 avec 4 petites visses M3
-* Visser la paroi droite (19) entre les pièces 01 et 06 avec 4 petites visses M3
+* Vissez la paroi gauche (14) entre les pièces 02 et 03 avec 4 petites visses M3
+* Vissez la paroi droite (19) entre les pièces 01 et 06 avec 4 petites visses M3
 
 Si les plaques ne se positionnent pas bien face aux inserts, créez un peu de jeu avec les vis.
 
 ## **Étape 5 : Fixer la drisse dyneema dans la bobine**
 
-<mark style="color:$warning;background-color:$danger;">Insérer la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.</mark>&#x20;
+<mark style="color:$warning;background-color:$danger;">Insérez la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.</mark>&#x20;
 
 <mark style="color:$warning;background-color:$danger;">Placer la bobine maintenant équipée de la drisse dyneema dans les deux supports pour bobine.</mark>
 
@@ -110,27 +110,27 @@ Si les plaques ne se positionnent pas bien face aux inserts, créez un peu de je
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (13).png" alt=""><figcaption></figcaption></figure>
 
-* Visser la pièce 18 avec les pièces :
+* Vissez la pièce 18 avec les pièces :
   * 16 (moteur) avec 6 petites visses M3.
-* Visser les pièces 10 et 11 à l’aide d’une visse moyenne M4 et d’une rondelle en silicone.
-* Visser les pièces 11, et 13 à l’aide d'une visse moyennes M4.
+* Vissez les pièces 10 et 11 à l’aide d’une visse moyenne M4 et d’une rondelle en silicone.
+* Vissez les pièces 11, et 13 à l’aide d'une visse moyennes M4.
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (14).png" alt=""><figcaption></figcaption></figure>
 
-* Visser la pièce 10 à l’extrémité du moteur (16) à l'aide de <mark style="color:$warning;background-color:$danger;">?? visses</mark> .
+* Vissez la pièce 10 à l’extrémité du moteur (16) à l'aide de <mark style="color:$warning;background-color:$danger;">?? visses</mark> .
 
 <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.06 (1) (1).jpeg" alt="" width="188"><figcaption></figcaption></figure>
 
-* Visser la pièce 18 avec les pièces :
+* Vissez la pièce 18 avec les pièces :
   * 07 (porte goupille) à l’aide de 4 grandes visses M5 et 4 écrous.
-* Placer la goupille (13) dans le porte goupille (07).
-* Visser la pièce 18 avec les pièces :
+* Placez la goupille (13) dans le porte goupille (07).
+* Vissez la pièce 18 avec les pièces :
   * 05A (fixation gauche) à l’aide de 4 moyennes visses M4, 2 rondelles en silicone et 2 écrous.
-* Emboiter le tube enrouleur équipée de la drisse dyneema (pièce 04) avec la fixation gauche (pièce 05A) à partir de l'extrémité opposé au trou de passage du boute.&#x20;
-* Visser la pièce 18 avec les pièces :
+* Emboitez le tube enrouleur équipée de la drisse dyneema (pièce 04) avec la fixation gauche (pièce 05A) à partir de l'extrémité opposé au trou de passage du boute.&#x20;
+* Vissez la pièce 18 avec les pièces :
   * 05B (fixation droite) à l’aide de 4 moyennes visses M4, 2 rondelles en silicone et 2 écrous.
   * 09 (mousqueton) à l’aide de 4 grandes visses M5 et 4 écrous.
-* Sur l’autre face de la pièce 18 visser les pièces 8a et 8b avec des 4 visses M4 de 25mm
+* Sur l’autre face de la pièce 18 vissez les pièces 8a et 8b avec des 4 visses M4 de 25mm
 
 <div><figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.09.49.jpeg.png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.00.jpeg.png" alt=""><figcaption></figcaption></figure></div>
 
