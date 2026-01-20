@@ -26,6 +26,8 @@ description: Page en construction...
 
 ## Pièces :&#x20;
 
+<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (16).png" alt=""><figcaption></figcaption></figure>
+
 ## **Étape 1 : Impression 3D**&#x20;
 
 À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimer les pièces 21, 28 et 29 à 15% de remplissage.
