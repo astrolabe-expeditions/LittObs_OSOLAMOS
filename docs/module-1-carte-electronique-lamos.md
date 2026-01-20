@@ -17,4 +17,42 @@ description: Page en construction...
 * Soudeuse par points à pédale
 * Multimètre
 * Lunettes de protection
-* Pince coupante et pince à dénuder
+* Pince coupante et pince à dénuder<br>
+
+### Soudure des composants sur le PCB
+
+1. **Souder sur le PCB les composants indiqués ci-dessous comme sur la photo :**
+
+* Le commutateur
+* Le connecteur 4 broches pour relier le servomoteur&#x20;
+* Le connecteur 2 broches pour relier l'interrupteur étanche
+* Le connecteur femelle XT30
+* La LED et sa résistance
+* Les 2 supports 18 contacts pour l'ESP32
+* Le support 7 contacts pour l'horloge RTC
+* Le Pololu Mini Pushbutton&#x20;
+
+
+
+\[AJOUTER PHOTO]
+
+
+
+2. Positionner les 2 supports de l'ESP32 et les souder. Faire de même pour le support de l'horloge&#x20;
+
+
+
+\[AJOUTER PHOTO]
+
+
+
+3. Souder le support de batterie 18650 comme ci-dessous
+
+
+
+\[AJOUTER PHOTO]
+
+
+
+
+
