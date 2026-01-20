@@ -10,8 +10,6 @@ description: Page en construction...
 
 ## Outils :&#x20;
 
-
-
 * Imprimante 3D
 * Découpeuse laser
 * Scie à métaux
@@ -30,7 +28,7 @@ description: Page en construction...
 
 ## **Étape 1 : Impression 3D**&#x20;
 
-À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimer les pièces 21, 28 et 29 à 15% de remplissage.
+À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimez les pièces 21, 28 et 29 à 15% de remplissage.
 
 ## **Étape 2 : Découpe laser**&#x20;
 
@@ -38,29 +36,29 @@ description: Page en construction...
 
 ## **Étape 3 : Taraudage des bouchons**
 
-A l'aide d'un taraud M10, tarauder les pièces 23 et 24.
+À l'aide d'un taraud M10, taraudez les pièces 23 et 24.
 
 Placez la pièce 26 au centre de la pièce 25 puis, a l'aide d'une perceuse et d'un foret M2,5, percez des trous dans la pièce 25 aux mêmes emplacements que ceux de la pièce 26.
 
-A l'aide d'un taraud M3, tarauder les pièces 25 et 26.
+À l'aide d'un taraud M3, taraudez les pièces 25 et 26.
 
 <div><figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.10 (1).jpeg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.08.jpeg" alt=""><figcaption></figcaption></figure></div>
 
 ## **Étape 4 : Assemblage des bouchons**
 
-Pour assembler le bouchon avant, superposé la pièce 24 sur la pièce 23 en alignant bien les trous centraux puis placez un joint taurique (27.a) à la jonction entre les deux pièces.
+Pour assembler le bouchon avant, superposez la pièce 24 sur la pièce 23 en alignant bien les trous centraux puis placez un joint taurique (27.a) à la jonction entre les deux pièces.
 
 <div><figure><img src=".gitbook/assets/WhatsApp Image 2025-09-30 at 18.22.43 (2).jpeg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-30 at 18.22.44.jpeg" alt=""><figcaption></figcaption></figure></div>
 
-Visser ensuite l’interrupteur (22) et le <mark style="color:$warning;background-color:$danger;">??</mark> dans les trous de la pièce 23 (paroi extérieure du bouchon):&#x20;
+Vissez ensuite l’interrupteur (22) et le pénétrateur WETLINK (21) dans les trous de la pièce 23 (paroi extérieure du bouchon):&#x20;
 
-<figure><img src=".gitbook/assets/WhatsApp Image 2025-09-30 at 18.22.42 (1).jpeg" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/1000062692.jpg" alt="" width="188"><figcaption></figcaption></figure>
 
-Visser la grande calle (29) à la pièce 24 (paroi arrière du bouchon) à l’aide de 4 petites visses M3 de 20mm.&#x20;
+Vissez la grande calle (29) à la paroi arrière du bouchon  (24) à l’aide de 4 petites visses M3 de 20mm.&#x20;
 
 <div><figure><img src=".gitbook/assets/WhatsApp Image 2025-09-30 at 18.22.58.jpeg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-30 at 18.22.44 (1).jpeg" alt=""><figcaption></figcaption></figure></div>
 
-Assembler maintenant le second bouchon à l'aides des pièces 25, 26, 27.b et 28 et de 2 petites visses M3.&#x20;
+Assemblez maintenant le second bouchon à l'aides des pièces 25, 26, 27.b et 28 et de 2 petites visses M3.&#x20;
 
 <div><figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.35.59 (1).jpeg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.35.59.jpeg" alt=""><figcaption></figcaption></figure></div>
 
@@ -70,17 +68,17 @@ Callez et vissez la carte électronique à la grande calle (29) à l’aide de 2
 
 ## **Étape 5 : Découpe et chanfreinage du tube**
 
-Dans un tube en PVC PN16 de 63mm de diamètre, découpez un portion de 25cm et chanfreinez les deux extrémités intérieures du tube <mark style="background-color:$danger;">à l'aide d'une fraise à chanfreiner à 45° avec roulement.</mark>
+Dans un tube en PVC PN16 de 63mm de diamètre, découpez une portion de 25cm et chanfreinez les deux extrémités intérieures du tube <mark style="background-color:$danger;">à l'aide d'une fraise à chanfreiner à 45° avec roulement.</mark>
 
 <div><figure><img src=".gitbook/assets/20240709_171148.jpg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-30 at 18.37.48.jpeg" alt=""><figcaption></figcaption></figure></div>
 
 ## **Étape 6 : Assemblage du tube**
 
-Placez les deux calle-corde sur le tube.
+Placez les deux <mark style="background-color:$danger;">calle-corde</mark> sur le tube.
 
 Placez des écrous borgnes au bout des 3 tiges filetés (20).
 
-Emboiter la pièce 31 par l'autre extrémité des tiges filetés et faites la glisser jusqu'aux écrous.&#x20;
+Emboitez la pièce 31 par l'autre extrémité des tiges filetés et faites la glisser jusqu'aux écrous.&#x20;
 
 <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-30 at 18.22.41 (3).jpeg" alt=""><figcaption></figcaption></figure>
 
