@@ -11,13 +11,23 @@ description: Page en construction...
 ## Outils :&#x20;
 
 *  Fils électriques
-* Chatterton
+* Ruban adhésif d'électricité chatterton
 * Fer à souder
 * Étain
 * Soudeuse par points à pédale
 * Multimètre
 * Lunettes de protection
-* Pince coupante et pince à dénuder<br>
+* Pince coupante et pince à dénuder
+
+### Commande ou impression du PCB
+
+Commander le PCB via un site tel que JLCPCB ou le découper via une fraiseuse numérique CNC grâce aux fichiers gerber.&#x20;
+
+{% file src=".gitbook/assets/Gerber_PCB_LAMOS_Moteur_2026-01-20.zip" %}
+
+{% file src=".gitbook/assets/Schematic_PCB_LAMOS_Moteur_2025-04-08.pdf" %}
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### Soudure des composants sur le PCB
 
@@ -32,25 +42,27 @@ description: Page en construction...
 * Le support 7 contacts pour l'horloge RTC
 * Le Pololu Mini Pushbutton&#x20;
 
+<figure><img src=".gitbook/assets/IMG_20260128_114804.jpg" alt="" width="563"><figcaption></figcaption></figure>
 
-
-\[AJOUTER PHOTO]
-
-
+<figure><img src=".gitbook/assets/IMG_20260128_115048.jpg" alt="" width="563"><figcaption></figcaption></figure>
 
 2. Positionner les 2 supports de l'ESP32 et les souder. Faire de même pour le support de l'horloge&#x20;
 
-
-
-\[AJOUTER PHOTO]
-
-
+<figure><img src=".gitbook/assets/IMG_20260128_115140.jpg" alt="" width="563"><figcaption></figcaption></figure>
 
 3. Souder le support de batterie 18650 comme ci-dessous
 
+<figure><img src=".gitbook/assets/IMG_20260128_115256.jpg" alt="" width="563"><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/IMG_20260128_115416.jpg" alt="" width="563"><figcaption></figcaption></figure>
 
 
-\[AJOUTER PHOTO]
+
+
+
+
+
+
 
 
 
