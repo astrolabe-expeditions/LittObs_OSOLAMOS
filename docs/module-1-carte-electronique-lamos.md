@@ -21,11 +21,7 @@ description: Page en construction...
 
 ### Commande ou impression du PCB
 
-Commander le PCB via un site tel que JLCPCB ou le découper via une fraiseuse numérique CNC grâce aux fichiers gerber.&#x20;
-
-{% file src=".gitbook/assets/Gerber_PCB_LAMOS_Moteur_2026-01-20.zip" %}
-
-{% file src=".gitbook/assets/Schematic_PCB_LAMOS_Moteur_2025-04-08.pdf" %}
+Commander le PCB via un site tel que JLCPCB ou le découper via une fraiseuse numérique CNC grâce aux fichiers gerber "[Gerber\_PCB\_LAMOS\_Moteur](https://github.com/astrolabe-expeditions/LittObs_OSOLAMOS/tree/d8edebc3e5015c4b25bd3d427265ff356d61ff94/hardware/pcbs/Gerber_PCB_LAMOS_Moteur)"
 
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
