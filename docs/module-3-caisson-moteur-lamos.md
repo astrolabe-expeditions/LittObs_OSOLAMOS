@@ -18,7 +18,6 @@ description: Page en construction...
 * Pince  &#x20;plate ou multiprise
 * Pistolet à colle
 * Clé plate 7 et 8 mm
-* Fer à souder&#x20;
 * Perceuse + foret de 2,5 mm
 * Fraise à chanfreiner à 45° avec roulement
 * Graisse

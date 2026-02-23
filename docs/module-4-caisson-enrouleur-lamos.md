@@ -12,10 +12,10 @@ description: >-
 
 ## Outils&#x20;
 
-* Imprimante 3D (pour support à LAMOS)
+* Imprimante 3D&#x20;
 * Découpeuse laser
-* Fer à souder
-* Tournevis
+* Fer à souder et étain
+* Tournevis cruciformes
 
 ## Pièces :&#x20;
 
@@ -23,7 +23,7 @@ description: >-
 
 ## **Étape 1 : Impressions 3D**&#x20;
 
-À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimez les pièces 1, 2, 3, 4, 5a et 5b, 6, 7, 8a et 8b, 9, 10 et 11 à 40% de remplissage.&#x20;
+À l'aide d'une imprimante 3D, de filaments PETG et des fichiers ci-dessous, imprimez les pièces 1, 2, 3, 4, 5a et 5b, 6, 7, 8a et 8b, 9, 10 et 11 à 40% de remplissage.&#x20;
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (9).png" alt=""><figcaption></figcaption></figure>
 
