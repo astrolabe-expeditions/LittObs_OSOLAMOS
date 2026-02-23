@@ -13,22 +13,46 @@ description: Page en construction...
 * Imprimante 3D
 * Découpeuse laser
 * Scie à métaux
-* Taurauds
-* Tournevis
-* Pince
+* Tarauds  &#x20;M3 et M10
+* Tournevis  &#x20;cruciformes
+* Pince  &#x20;plate ou multiprise
 * Pistolet à colle
-* Clé plate 7mm
+* Clé plate 7 et 8 mm
 * Fer à souder&#x20;
-* Perceuse + foret de 2,5
-* <mark style="background-color:$danger;">Fraise à chanfreiner à 45° avec roulement.</mark>
+* Perceuse + foret de 2,5 mm
+* Fraise à chanfreiner à 45° avec roulement
 
 ## Pièces :&#x20;
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (16).png" alt=""><figcaption></figcaption></figure>
 
+19 - Tube PVC
+
+20 - Tiges filetées
+
+21 - Presse étoupe&#x20;
+
+22 - Interrupteur étanche
+
+23 - 24 - 25 - 26 - Éléments plexiglas découpés au laser pour les bouchons du tube
+
+27- Joint torique
+
+28 - 29 - Supports imprimés en 3D pour assembler les bouchons
+
+30 - Carte électronique&#x20;
+
+31 - Protection presse étoupe et interrupteur imprimé en 3D
+
+32 - Écrous borgnes
+
+33 - Écrous papillon
+
 ## **Étape 1 : Impression 3D**&#x20;
 
-À l'aide d'une imprimante 3D, de filaments en PETG et des fichiers ci-dessous, imprimez les pièces 21, 28 et 29 à 15% de remplissage.
+À l'aide d'une imprimante 3D, de filament PLA ou PETG et des fichiers ci-dessous, imprimez les pièces 28 et 29 à 15% de remplissage. Imprimer également la pièce 31 avec un remplissage plus élevé (>30%) pour plus de résistance car elle sera soumise à plus d'efforts mécaniques.
+
+
 
 ## **Étape 2 : Découpe laser**&#x20;
 
