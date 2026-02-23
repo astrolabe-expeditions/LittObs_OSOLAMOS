@@ -25,43 +25,17 @@ description: >-
 
 À l'aide d'une imprimante 3D, de filaments PETG et des fichiers ci-dessous, imprimez les pièces 1, 2, 3, 4, 5a et 5b, 6, 7, 8a et 8b, 9, 10 et 11 à 40% de remplissage.&#x20;
 
+[https://github.com/astrolabe-expeditions/LittObs\_LAMOS/tree/896dc8c68939401ac19cc8e68da1dfa3573f5516/hardware/enclosures/body](https://github.com/astrolabe-expeditions/LittObs_LAMOS/tree/896dc8c68939401ac19cc8e68da1dfa3573f5516/hardware/enclosures/body)
+
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (9).png" alt=""><figcaption></figcaption></figure>
 
-{% file src=".gitbook/assets/1_mur_avant.stl" %}
+## **Étape 2 : Découpes laser**&#x20;
 
-{% file src=".gitbook/assets/2_mur_gauche.stl" %}
+À l'aide d'une découpeuse laser et des fichiers ci-dessous, découpez les pièces 14, 15a et 15b dans des plaques de plexiglas de 2mm et les pièces 17 et 18 dans des plaques de plexiglas de 5mm.
 
-{% file src=".gitbook/assets/3_mur_arriere.stl" %}
-
-{% file src=".gitbook/assets/4_mur_droit.stl" %}
-
-{% file src=".gitbook/assets/5.a_fixation_enrouleur_1.stl" %}
-
-{% file src=".gitbook/assets/5.b_fixation_enrouleur_2.stl" %}
-
-{% file src=".gitbook/assets/6_enrouleur.stl" %}
-
-{% file src=".gitbook/assets/7_porte goupille-2 v10mm.stl" %}
-
-{% file src=".gitbook/assets/8.a_8.b_attache_tube_64mm (1).stl" %}
-
-{% file src=".gitbook/assets/9_mousqueton.stl" %}
-
-<mark style="color:$warning;background-color:$danger;">**MANQUE PIECES 10 ET 11**</mark>&#x20;
-
-## **Etape 2 : Découpes laser**&#x20;
-
-À l'aide d'une découpeuse laser et des fichiers ci-dessous, découpez les pièces 12, 14, 15a et 15b dans des plaques de plexiglass de 2mm et les pièces 17 et 18 dans des plaques de plexiglass de 5mm.
+[https://github.com/astrolabe-expeditions/LittObs\_LAMOS/tree/896dc8c68939401ac19cc8e68da1dfa3573f5516/hardware/enclosures/body](https://github.com/astrolabe-expeditions/LittObs_LAMOS/tree/896dc8c68939401ac19cc8e68da1dfa3573f5516/hardware/enclosures/body)
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (10).png" alt=""><figcaption></figcaption></figure>
-
-{% file src=".gitbook/assets/12_14_15.a_15.b_murs_LAMOS.pdf" %}
-
-{% file src=".gitbook/assets/17_Face A_LAMOS.pdf" %}
-
-{% file src=".gitbook/assets/18_Face B_LAMOS.pdf" %}
-
-{% file src=".gitbook/assets/12_14_15.a_15.b_murs_LAMOS.pdf" %}
 
 ## **Étape 3 : Insérer les inserts filetés dans les parois 3D**
 
@@ -71,66 +45,65 @@ Attention à ce que la chaleur du fer à souder ne crée pas des bourrelets auto
 
 <div align="center"><figure><img src=".gitbook/assets/1000056525 (1).jpg" alt="" width="188"><figcaption></figcaption></figure></div>
 
-## **Étape 4 : Assembler des murs et paroies**
+## **Étape 4 : Assemblage des murs et parois**
 
 **À partir du schéma suivant :**
 
 <div><figure><img src=".gitbook/assets/Pièces LAMOS LittObs (11) (1).png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/20250918_185842 (1).jpg" alt="" width="563"><figcaption></figcaption></figure></div>
 
-Vissez les pièces 3D 01, 02, 03 et 04 sur la plaque en plexiglass 17
+Vissez les pièces 01, 02, 03 et 04 sur la plaque en plexiglas 17
 
-* 01 (mur avant) à l’aide de 1 petite visse M3 et 4 grandes visses M5
-* 02 (mur gauche) à l’aide de 4 petites visses M3
-* 03 (mur arrière) à l’aide de 2 grandes visses M5
-* 04 (mur droit) à l’aide de 2 petites visses M3
+* 01 (mur avant) à l’aide de 1 petite vis M3 10mm et 4 grandes vis M5
+* 02 (mur gauche) à l’aide de 4 petites vis M3 10mm
+* 03 (mur arrière) à l’aide de 2 grandes vis M5
+* 04 (mur droit) à l’aide de 2 petites vis M3 10mm
 
 **À partir du schéma suivant :**
 
 <div><figure><img src=".gitbook/assets/Pièces LAMOS LittObs (12).png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.09.54.jpeg.png" alt=""><figcaption></figcaption></figure></div>
 
-* Vissez la paroi arrière gauche (15a) entre les pièces 02 et 03 avec 04 petites visses M3
-* Vissez la paroi arrière droite (15b) entre les pièces 03 et 06 avec 04 petites visses M3
+* Vissez la paroi arrière gauche (15a) entre les pièces 02 et 03 avec 04 petites vis M3
+* Vissez la paroi arrière droite (15b) entre les pièces 03 et 06 avec 04 petites vis M3
 
 <mark style="color:$warning;">ATTENTION les parois 15a et 15b ne font pas la même taille ! 15a est plus petite que 15b</mark>
 
-* Vissez la paroi gauche (14) entre les pièces 02 et 03 avec 4 petites visses M3
-* Vissez la paroi droite (19) entre les pièces 01 et 06 avec 4 petites visses M3
+* Vissez la paroi gauche (14) entre les pièces 02 et 03 avec 4 petites vis M3
+* Vissez la paroi droite (19) entre les pièces 01 et 06 avec 4 petites vis M3
 
 Si les plaques ne se positionnent pas bien face aux inserts, créez un peu de jeu avec les vis.
 
-## **Étape 5 : Fixer la drisse dyneema dans la bobine**
+## **Étape 5 : Fixer et enrouler la drisse dans la bobine**
 
-<mark style="color:$warning;background-color:$danger;">Insérez la drisse dyneema dans la bobine au niveau du trou prévu à cet effet, puis réaliser un nœud de huit.</mark>&#x20;
+**Insérer la drisse 6mm dans l'enrouleur (6) au niveau du trou prévu à cet effet, puis réaliser un nœud de blocage. Si le trou n'est pas adapté au diamètre du bout, ne pas hésiter à repercer l'enrouleur d'un diamètre plus adapté).**
 
-<mark style="color:$warning;background-color:$danger;">Placer la bobine maintenant équipée de la drisse dyneema dans les deux supports pour bobine.</mark>
+**Enrouler la longueur totale du bout autour de la bobine. Puis placer la bobine dans les 2 supports (5a et 5b).**
 
 ## **Étape 5 : Assembler le système de largage**
+
+* Assembler le système de largage goupille :&#x20;
+  * En vissant la bielle (10) avec la manivelle (11) à l’aide d’une vis M4 et d’une ou deux rondelles
+  * En fixant la goupille (13) sur la manivelle par l'intermédiaire du petit anneau imprimé en 3D ainsi qu'un vis M4
+
+<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (14).png" alt="" width="375"><figcaption></figcaption></figure>
 
 **À partir du schéma suivant et en suivant l'ordre des étapes :**
 
 <figure><img src=".gitbook/assets/Pièces LAMOS LittObs (13).png" alt=""><figcaption></figcaption></figure>
 
-* Vissez la pièce 18 avec les pièces :
-  * 16 (moteur) avec 6 petites visses M3.
-* Vissez les pièces 10 et 11 à l’aide d’une visse moyenne M4 et d’une rondelle en silicone.
-* Vissez les pièces 11, et 13 à l’aide d'une visse moyennes M4.
+<div><figure><img src=".gitbook/assets/IMG_20260128_124200.jpg" alt="" width="375"><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/IMG_20260128_121736.jpg" alt="" width="375"><figcaption></figcaption></figure></div>
 
-<figure><img src=".gitbook/assets/Pièces LAMOS LittObs (14).png" alt=""><figcaption></figcaption></figure>
+* Fixer sur la seconde paroi plexiglas (18) les pièces suivantes :
+  *   Le servomoteur (16) avec 6 petites visses M3. Le système de largage précédemment assemblé doit être fixé sur la partie rotative du servomoteur (16) à l'aide de vis à tête fraisée M4 de 10mm
 
-* Vissez la pièce 10 à l’extrémité du moteur (16) à l'aide de <mark style="color:$warning;background-color:$danger;">?? visses</mark> .
+      *
 
-<figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.06 (1) (1).jpeg" alt="" width="188"><figcaption></figcaption></figure>
+          <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.06 (1) (1).jpeg" alt="" width="188"><figcaption></figcaption></figure>
 
-* Vissez la pièce 18 avec les pièces :
-  * 07 (porte goupille) à l’aide de 4 grandes visses M5 et 4 écrous.
-* Placez la goupille (13) dans le porte goupille (07).
-* Vissez la pièce 18 avec les pièces :
-  * 05A (fixation gauche) à l’aide de 4 moyennes visses M4, 2 rondelles en silicone et 2 écrous.
-* Emboitez le tube enrouleur équipée de la drisse dyneema (pièce 04) avec la fixation gauche (pièce 05A) à partir de l'extrémité opposé au trou de passage du boute.&#x20;
-* Vissez la pièce 18 avec les pièces :
-  * 05B (fixation droite) à l’aide de 4 moyennes visses M4, 2 rondelles en silicone et 2 écrous.
-  * 09 (mousqueton) à l’aide de 4 grandes visses M5 et 4 écrous.
-* Sur l’autre face de la pièce 18 vissez les pièces 8a et 8b avec des 4 visses M4 de 25mm
+
+  * Le porte goupille (7) à l’aide de 4 grandes vis M5 et 4 écrous. Puis glisser la goupille (13).
+  * L'ensemble de l'enrouleur comprenant les fixation gauche et droites (5a et 5b) ainsi que la bobine et la drisse (6)
+  * Le mousqueton (9) à l’aide de 4 grandes vis M5 et 4 écrous.
+* Sur l’autre face de la paroi plexiglas (18), fixer les pièces 8a et 8b avec des 4 vis M4 de 25mm
 
 <div><figure><img src=".gitbook/assets/WhatsApp Image 2025-10-08 at 18.09.49.jpeg.png" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/WhatsApp Image 2025-09-25 at 19.36.00.jpeg.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -138,7 +111,9 @@ Si les plaques ne se positionnent pas bien face aux inserts, créez un peu de je
 
 ## **Étape 6 : Assembler l'ensemble**
 
-Visser la pièce 18 avec les murs 01, 02,03 et 04 à l'aide de <mark style="color:$warning;background-color:$danger;">?? visses.</mark>
+Visser la pièce 18 avec les murs 01, 02,03 et 04 à l'aide de vis M5 et M3 10mm.
 
 
+
+<div><figure><img src=".gitbook/assets/IMG_20260128_121808.jpg" alt=""><figcaption></figcaption></figure> <figure><img src=".gitbook/assets/IMG_20260128_121744.jpg" alt=""><figcaption></figcaption></figure></div>
 
